@@ -68,6 +68,60 @@
  *  Third Level Domain  (www.google.com , download.google.com , sales.google.com)
  *  
  *  (ALL 4 TYPES OF DOMAIN WE MUST HAVE IDEA ABOUT THIS THINGS)
+ * 
+ *  AND YOU WILL UNDERSTAND IMPORTENTS OF ABOVE THING WHEN YOU UNDERSTAND THAT
+ *  WE HAVE MILLIONS OF DOMAIN AND IF WE DIRECTLY SEARCH THEN ITS COSTLY OPERATION
+ *  BUT WHAT IF WE SEARCH ACCORDING TO DIFFERENT DOMAINS INFO WE HAVE LIKE
+ *  BASED ON TOP , SECOND AND THIRD LEVEL DOMAIN
+ * 
+ *  DATA CENTER : WHERE YOU HAVE LARGE NUMBER OF CUPS WITH HIGH CONFIGURATION
+ * 
+ * 
+ *  After top level domain .com/ we will have our own defined path like /profile
+ *  /users and also we need we can have query params like ?id=1 or anything
+ *  these are all possible things we can have in URL importent thing to get
+ *  from here is all for types of domain like root level , top level , second
+ *  and third level domain.
  */
+
+
+/**
+ *  CONNECT INTERNET ACROSS THE GLOBL : (OPTICAL FIBER NETWORK)
+ * 
+ *   This is also intersting that how the world is connect through optical
+ *   fiber network and intresting thing is all those optical fiber wires
+ *   are in SEA that means we can say that countries are connected through 
+ *   SEA when it comes to network 
+ */
+
+/**
+ *  ISP : (INTERNET SERVICE PROVIDES) PAYS BIG ROLES IN TERMS OF NETWORKING)
+ * 
+ *  FIBER OPTICAL NETWORKS WORKS ALMOST ON SPEED ON LIGHT  
+ */
+
+
+/**
+ *  WHAT BROWSER IS DOING BEFORE EVEN MAKING REQUEST
+ *   
+ *   Basically all four levels of caching done by browser 
+ *   
+ *   Browser (Cache , Services Worker)
+ *   Operating System
+ *   Router
+ *   ISP
+ * 
+ *  UNDERSTAND THAT DEPENDING ON BROWSER MAX REQUEST CAN BE HANDLED PARELLERLY
+ *  IS AROUND 6 TO 8
+ */
+
+// 36 min left (HOW NETWORK WORKS)
+/**
+ *  WHAT DO WE MEAN BY SERVICE WORKERS 
+ */
+
+
+
+
 
 
