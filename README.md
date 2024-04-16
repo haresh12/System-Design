@@ -1,5 +1,6 @@
 # Namaste Frontend System Design 🚀
 
+# EACH FOLDER SHOULD HAVE ONE FILE CALLED learning.js WHERE YOU CAN SEE ALL THE IMPORTENT POINTS ABOUT THAT TOPIC
 
 # Security
 - XSS
