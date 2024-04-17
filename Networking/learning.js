@@ -357,8 +357,80 @@ n *
 
 /**
  *  SEE ALL THIS PROTOCOL ARE BUILD TO SOLVE SPECIFIC PROBLEM 
+ * 
+ *  LIST OF ALL THE ALL PROTOCOL THAT WE LEARNED
+ * 
+ *  HTTP
+ *  HTTPS
+ *  HTTP/3 (QUIC)
+ *  WEBSOCKET 
+ *  FTP 
+ *  SMTP
+ *  
  */
 
+
+
+/**
+ *  REST API (IN DEPTH)
+ * 
+ *  IN FIRST WATCH I WILL ONLY ADD IMPORTENT POINTS
+ *  
+ *  1-tier Architechture (All frontend and backend at same place)
+ *  2- tier Architechture (Different code base for Frontend and Backend)
+ *  3- tier Architechture (Here now we have Frontend , Backend and Storage database)
+ *  
+ *  REST API : COMMINCATION WAY BETWEEN TWO WEB SERVICES 
+ * 
+ *  REST IS LIKE DEFINING STARDARDS FOR COMMUNICATION BETWEEN SERVER AND CLIENT
+ * 
+ *  REST IS BUILD ON TOP OF HTTP OR WE CAN SAY BY LEVERAZING HTTP
+ * 
+ *  BENEFITS OF REST :
+ * 
+ *   SIMPLICITY OR EASY TO USE
+ *   STATELESS : WHAT DO WE MEAN ? YOUR SERVER DOES NOT MAINTAIN ANY STATE
+ *   SCALABILITY
+ *   FLEXIBILITY WITH DATA : XML ,JSON ANYTHING WILL BE FINE
+ *   UNIFORM INTERFACE
+ *   CACHING 
+ *   SEPARTION OF CONCERNS
+ *   LANGUAGE AGNOSTIC
+ *   EASE OF TESTING
+ *   SECURITY
+ * 
+ *   
+ *   BUILDING BLOCKS
+ *   
+ *     URL
+ *     METHOD
+ *     HEADER
+ *     REQUEST
+ *     RESPONSE
+ *     STATUS CODE
+ *   
+ *  DIFFERENT PART OF URL
+ * 
+ *  https://www.example.com/forum/questions?tag=networking&order='desc'#top
+ * 
+ *  https => scheme / protocol
+ * www.example.com => HOST WHICH CONTAINS DIFFERENT PARTS 
+ *  www =>  subdomain / third level domain // sales. , download. www. 
+ *  example => domain
+ *  .com => top level domain => .edu , .dev , .org
+ *  forum/questions => path [form is subdirectory and questions is subdirectory]
+ *  tag=?networking&order=desc => Query string 
+ *       [tag and order are keys and networking and desc are values] 
+ *  #top => THIS IS FRAMGENT THIS IS NEW FOR ME LEARN MORE ABOUT IT
+ * 
+ *   #TOP => to store some extra infermation i need to learn more about it
+ * 
+ *  #TOP => THIS IS NOT SENT FROM CLIEN TO SERVE 
+ * 
+ *  
+ *  PATH IS WAY TO REACH TO SPECIFIC ROUTE
+ *  QUERY STRING IS WAY TO PASS SOME DATA 
+ */
 
 
 
