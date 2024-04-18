@@ -451,9 +451,143 @@ n *
  *  IS SERIALIZED AND WE NEED TO DECERALIZED IT .
  * 
  *  ALWAYS ALWAYS DO res.json(); // THATS THE WAY TO ACCESS THE DATA 
+ *  
  */
 
 
+/***
+ *   HERE I WILL WRITE ABOUT HEADERS FOR BOTH REQUEST AND RESPONSE
+ * 
+ *                     REQUEST HEADER 
+ * 
+ * 
+ *  NAME                            USECASE                             EXAMPLE
+ * 
+ *  
+ *  Host                            Target Host                       1.roma.api.flipart.com
+ * 
+ *  Origin                          Origin Host                        www.flipkart.com                     
+ * 
+ *  Referer                         Indicate from where                User comes from linkdin to fli
+ *                                  request made                       pkart then in referer you will
+ *                                                                     get https://www.linkdin.com
+ * 
+ * 
+ *  User-Agent                      Gives infermation about           Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 
+ *                                  user BROWSER , OS Version etc     (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+ *  
+ * 
+ *  Accept                          What type of response i can        /* , application/json text/javscropt
+ *                                  accept
+ * 
+ * 
+ *  Accept-language                  What kinds of language i support        en-US,en;q=0.9
+ *                                  also we can pass priority we will    
+ *                                  put flipkart example
+ * 
+ * 
+ *  Accept-encoding                  What kind of encoding algorithem      gzip, deflate, br, zstd
+ *                                  supported. br is new one and best
+ *                                  gzip is supported by all browser
+ *                                  (LEARN MORE ABOUT ALL)
+ * 
+ * 
+ *  Connection                      Best one if you want TCP handshek
+ *                                  alive so we don't have to do handshak     keep-alive , close
+ *                                  again and again .
+ * 
+ *  Authorization                   Used to send authorized header token     Authorization : Bearer-asd
+ * 
+ * 
+ *  Cookies                         To send custom data in key value pair    MUID=0B521A7CD94C686F1A290E1ED89969A7
+ *                                                                           (SEE HASHNODE TAKING MY MUID WITHOUT PERMISSION
+ * 
+ * 
+ * if-modified-since                helpful for catching related stuff       we will see example in Security module
+ * 
+ * 
+ *  Cache-control                   Again related to caching                we will see example in Security module
+ * 
+ * 
+ *     
+ *                                        REQUEST HEADER
+ * 
+ * 
+ * 
+ *   NAME                               USECASE                        EXAMPLE
+ * 
+ * 
+ *   DATE                               When the response was        Thu, 18 Apr 2024 04:12:58 GMT
+ *                                          generated
+ * 
+ *  
+ *   Server                             provide info about server     nginx/1.18.0 (Ubuntu     
+ *                                       used to build api
+ * 
+ *   
+ *   Content-Type                        Type of response content       application/Json
+ * 
+ * 
+ *   Content-length                       Total response body length      4123B (usefull to show progress) 
+ *   
+ * 
+ *   Set-cookie                            To set cookie for next          Need some practical example  
+ *                                          or future request
+ *   
+ *   Content-encoding                      Compration algorithm used         br
+ *                                         like br,gzip
+ * 
+ *   
+ *  
+ *   NOW WE HAVE FEW MORE LIKE Catch-control  Last-modified   Etag all this are related to CACHING
+ *   SO WE ARE GOING TO COVER IN FUTURE SECTIONS
+ *                               
+ */                                        
+
+
+/**
+ *                                 DIFFERENT STATUS CODE 
+ * 
+ *  
+ *  STATUS RANGE         USECASE            STATUS CODE                USECASE                   
+ *    
+ *     
+ * 
+ *    1XX               Information          100                       keep sending information i am listening        
+ *                                           101                       SWICHING (LIKE FROM HTTP TO WEBSOCKET)
+ *                                          
+ * 
+ * 
+ *  
+ *    
+ *    2xx                Success               200                      OK
+ *                                             201                      Created
+ *                                             203                      ACCEPTED (SEE SOME PRACTICAL)
+ *                                             204                      No content (Kaam ho gya ji aapka thats it)
+ *                                             206                      Partial Content
+
+ *    
+ *    3xx                Redirection            301                     Parmanently Moved
+ *                                              302                     Tempeory  Moved
+ *                                              304                     NOT MODIFIED DATA
+ *                                              307                     Tempeory Moved  but retains method method
+ *                                              308                     Parmanently  Moved but no changes in api method
+ * 
+ * 
+ *    4XX                 Client Side Error     400                     Wrong information
+ *                                              401                     Un-authorized
+ *                                              403                     Not authorized (Bhai to admin nhi he)                  
+ *                                              404                     BEST ONE NO DATA FOUND
+ *                                              405                     Method not allow (BEST ONE)
+ *                                              429                     Failed because of Concurrent request
+ * 
+ * 
+ *    5XX                 Server Side Error    500                     Internal Server Error
+ *                                             502                     Bad Gateway 
+ *                                             503                     Service Unavaliable
+ *                                             504                     GATEWAY TIMOUT
+ *                                             507                     Insuficient Storage
+ */  
 
 
 
