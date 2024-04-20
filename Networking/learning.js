@@ -430,15 +430,328 @@ n *
  *  
  *  PATH IS WAY TO REACH TO SPECIFIC ROUTE
  *  QUERY STRING IS WAY TO PASS SOME DATA 
+ * 
+ *   REST METHODS 
+ * 
+ *     POST , GET , PUT/PATCH  DELETE , HEAD , OPTIONS 
+ * 
+ *     OPTIONS => THIS ONE IS BASICALLY USED FOR SECURITY PURPOSE FOR CROSS
+ *     DOMAIN
+ * 
+ *     CONNECT => TO MAKE ESTABLISH CONNECTION BETWEEN CLIENT AND SERVER SO 
+ *     THAT WE DON'T HAVE TO DO HANDSHECK WITH EACH REQUEST 
+ * 
+ *     TRACE => FOR TRACING PURPOSE
+ * 
+ *     WE NEED TO DO ONE EXAMPLE FOR OPTIONS AND CONNECT FOR BETTER UNDERSTANDING
+ * 
+ *  ONE THING THAT I MADE MISTAKE IN INTERVIEW ALSO IS THAT NOT DE-SERIALIZING 
+ *  API DATA WE NEED TO UNDERSTAND ONE THING THAT NOT MATTER WHETHER YOU SEND
+ *  ANY DATA TO SERVER OR SERVERS SENDS ANY DATA TO CLIENT THE ENTIRE DATA
+ *  IS SERIALIZED AND WE NEED TO DECERALIZED IT .
+ * 
+ *  ALWAYS ALWAYS DO res.json(); // THATS THE WAY TO ACCESS THE DATA 
+ *  
+ */
+
+
+/***
+ *   HERE I WILL WRITE ABOUT HEADERS FOR BOTH REQUEST AND RESPONSE
+ * 
+ *                     REQUEST HEADER 
+ * 
+ * 
+ *  NAME                            USECASE                             EXAMPLE
+ * 
+ *  
+ *  Host                            Target Host                       1.roma.api.flipart.com
+ * 
+ *  Origin                          Origin Host                        www.flipkart.com                     
+ * 
+ *  Referer                         Indicate from where                User comes from linkdin to fli
+ *                                  request made                       pkart then in referer you will
+ *                                                                     get https://www.linkdin.com
+ * 
+ * 
+ *  User-Agent                      Gives infermation about           Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 
+ *                                  user BROWSER , OS Version etc     (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+ *  
+ * 
+ *  Accept                          What type of response i can        /* , application/json text/javscropt
+ *                                  accept
+ * 
+ * 
+ *  Accept-language                  What kinds of language i support        en-US,en;q=0.9
+ *                                  also we can pass priority we will    
+ *                                  put flipkart example
+ * 
+ * 
+ *  Accept-encoding                  What kind of encoding algorithem      gzip, deflate, br, zstd
+ *                                  supported. br is new one and best
+ *                                  gzip is supported by all browser
+ *                                  (LEARN MORE ABOUT ALL)
+ * 
+ * 
+ *  Connection                      Best one if you want TCP handshek
+ *                                  alive so we don't have to do handshak     keep-alive , close
+ *                                  again and again .
+ * 
+ *  Authorization                   Used to send authorized header token     Authorization : Bearer-asd
+ * 
+ * 
+ *  Cookies                         To send custom data in key value pair    MUID=0B521A7CD94C686F1A290E1ED89969A7
+ *                                                                           (SEE HASHNODE TAKING MY MUID WITHOUT PERMISSION
+ * 
+ * 
+ * if-modified-since                helpful for catching related stuff       we will see example in Security module
+ * 
+ * 
+ *  Cache-control                   Again related to caching                we will see example in Security module
+ * 
+ * 
+ *     
+ *                                        REQUEST HEADER
+ * 
+ * 
+ * 
+ *   NAME                               USECASE                        EXAMPLE
+ * 
+ * 
+ *   DATE                               When the response was        Thu, 18 Apr 2024 04:12:58 GMT
+ *                                          generated
+ * 
+ *  
+ *   Server                             provide info about server     nginx/1.18.0 (Ubuntu     
+ *                                       used to build api
+ * 
+ *   
+ *   Content-Type                        Type of response content       application/Json
+ * 
+ * 
+ *   Content-length                       Total response body length      4123B (usefull to show progress) 
+ *   
+ * 
+ *   Set-cookie                            To set cookie for next          Need some practical example  
+ *                                          or future request
+ *   
+ *   Content-encoding                      Compration algorithm used         br
+ *                                         like br,gzip
+ * 
+ *   
+ *  
+ *   NOW WE HAVE FEW MORE LIKE Catch-control  Last-modified   Etag all this are related to CACHING
+ *   SO WE ARE GOING TO COVER IN FUTURE SECTIONS
+ *                               
+ */                                        
+
+
+/**
+ *                                 DIFFERENT STATUS CODE 
+ * 
+ *  
+ *  STATUS RANGE         USECASE            STATUS CODE                USECASE                   
+ *    
+ *     
+ * 
+ *    1XX               Information          100                       keep sending information i am listening        
+ *                                           101                       SWICHING (LIKE FROM HTTP TO WEBSOCKET)
+ *                                          
+ * 
+ * 
+ *  
+ *    
+ *    2xx                Success               200                      OK
+ *                                             201                      Created
+ *                                             203                      ACCEPTED (SEE SOME PRACTICAL)
+ *                                             204                      No content (Kaam ho gya ji aapka thats it)
+ *                                             206                      Partial Content
+
+ *    
+ *    3xx                Redirection            301                     Parmanently Moved
+ *                                              302                     Tempeory  Moved
+ *                                              304                     NOT MODIFIED DATA
+ *                                              307                     Tempeory Moved  but retains method method
+ *                                              308                     Parmanently  Moved but no changes in api method
+ * 
+ * 
+ *    4XX                 Client Side Error     400                     Wrong information
+ *                                              401                     Un-authorized
+ *                                              403                     Not authorized (Bhai to admin nhi he)                  
+ *                                              404                     BEST ONE NO DATA FOUND
+ *                                              405                     Method not allow (BEST ONE)
+ *                                              429                     Failed because of Concurrent request
+ * 
+ * 
+ *    5XX                 Server Side Error    500                     Internal Server Error
+ *                                             502                     Bad Gateway 
+ *                                             503                     Service Unavaliable
+ *                                             504                     GATEWAY TIMOUT
+ *                                             507                     Insuficient Storage
+ */  
+
+
+
+
+
+
+
+
+/***
+ * 
+ *                                      UNDERSTANDING GRAPHQL 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 
 
 
 
+/***
+ *                                      UNDERSTANDING  GRPC
+ * 
+ * 
+ * 
+ *   SO FIRST THING FIRST WHAT WE ARE GOING TO COVER 
+ * 
+ *    1. What is grpc
+ *    2. RPC
+ *    3. ProtoBuf (Protocol Buffer) (IDL)
+ *    4. HandsOn  (One small practical example)
+ *    5. REST VS GRPC
+ *    6. Pros/Cons
+ * 
+ * 
+ *   FIRST UNDERSTAND THAT RPC IS LIKE ANOTHER WAY TO COMMUNICATE BETWEEN CLIENT AND SERVER OR SERVER
+ *   TO SERVER LIKE OTHER WE LEARNED EXAMPLE REST AND GRAPHQL
+ * 
+ *   RPC STANDS FOR REMOTE PROCEDURE CALL
+ *  
+ *   NOW WHAT IS GRPC THEN SO BASICALLY ITS BUILD BY GOOGLE ON TOP OF RPC AND WE KNOW WHEN GOOGLE
+ *   BUILD SOMETHING WE HAVE HELL LOT OF EASYNESS IN THAT AND LOT MORE FUNCTIONALITY
+ * 
+ *   SEE FROM THIS ENTIRE GRPC SESSION IF WE DON'T LEARN ANYTHING THEN THATS FINE BUT ONLY
+ *   REMEMBER THIS BELOW FUNCTION.
+ * 
+ *    IT IS OPEN SOURCE
+ *    
+ *   "THE BASIC IDEA OF GRPC IS THAT WHAT IF WE CAN DIRECTLY CALL SERVER FUNCTION FROM CLIENT
+ *    SIDE SO SEE IN REST YOU HAVE MANY URLS YOU ACCESS THOSE URL TO GET DATA IN CLIENT
+ *    IN CASE OF GRAPHQL WE HAD ONE SINGLE URL ANY WE USE QUERY AND MUTATIONS TO ACCESS AND
+ *    MODIFY THOSE DATA BUT IN CASE OF GRPC WE CAN DIRECTLY ACCESS THE METHODS OF SERVER
+ *    AND TO BE REAL THIS IS FASINATING"
+ * 
+ * 
+ *    "I DON'T HAVE MUCH UNDERSTANDING AT THIS POINT OF TIME BUT I THINK GRPC IS MAINLY
+ *     USED FOR SERVER TO SERVER COMMUNICATION."
+ * 
+ *    
+ * 
+ *                   LETS UNDERSTAND HOW GRPC WORKS
+ * 
+ * 
+ *   
+ *     CLIENT FUNCTION : EXECUTE SOMETHING THAT IS RETURN ON  SERVER
+ *     CLIENT STUB : CLIENT STUB IS PROVIDING YOU INTRFACES THATS HELPS YOU TO CALL ABOVE FUNCTION (ITS LIKE THERE INTERNALS)
+ *     RPC RUNTIME : INTERNAL RUNTIME 
+ * 
+ *     // SAME AS CLIENT SERVER ALSO HAS THIS THREE THINGS
+ *     SERVER FUNCTION
+ *     SERVER STUB
+ *     RTC RUNTIME
+ * 
+ *   
+ *    NOW IN TOTAL YOU HAVE ABOVE 6 THINGS ANY QUESTION IS LIKE HOW THE DATA FLOWS SO LETS 
+ *    UNDERSTAND THIS.
+ * 
+ *    FIRST SUPPOSE YOU HAVE FUNCTION A THAT IS WRITTEN IN SERVER ANY CLIENT WANTS TO EXECUTE
+ *    IT
+ *   
+ *    THEN I CAN SEE IN CLIENT YOU HAVE SOMETHING LIKE A(); // FUNCTION INVOCATION
+ *    THEN FROM THERE REQUEST GOES TO CLIENT STUB WHICH IS INTERNALLY THINGS THAT
+ *    HOW THIS FUNCTION A() NEEDS TO BE CALLED FROM THERE IT GOES TO RPC RUNTIME
+ *    
+ *    SO TILL NOW COMMUNICATION IS LIKE
+ * 
+ *    CLIENT FUNCTION  ========>  CLIENT STUB ======>  CLIENT RPC RUNTIME 
+ *    
+ *    NOW ITS TIME TO INVOLE SERVER SO FROM FROM CLIENT RUNTION REQUEST GOES TO 
+ *    SERVER RPC RUNTIME AND FROM THERE IT GOES TO SERVER STUB AND FROM THERE
+ *    IT GOES TO SERVER FUNCTION.
+ * 
+ * 
+ *    SO TILL NOW BELOW IS THE WAY REQUEST DATA IS FLOWING
+ * 
+ *   
+ *  CLIENT FUNCTION =====> CLIENT STUB ====> CLIENT RPC RUNTIME =====> SERVER RPC RUNTIME =======> SERVER RPC STUBS ====> SERVER FUNCTIONS
+ * 
+ * 
+ *  SO ALL ABOVE ARE THE STEPS THAT WE HAVE SEEN LIKE HOW REQUEST FLOWS NEXT IS RESPONSE STEPS
+ * 
+ *  (GENERATE THE RESPONSE) (MESSAGE THE RESPONSE)                                                                  (5000 SAAL BAD RESPONSE MIL GYA)
+ *  SERVER FUNCTION =====> SERVER STUB  ======> SERVER RPC RUNTIME ====> CLIENT RPC RUNTIME ====> CLIENT STUBS ====> CLIENT FUNCTIONS
+ * 
+ *  
+ *  SEE TO BE REAL AT THIS TIME CLIENT STUB AND RPC RUNTIME ARE BLACK BOXES FOR US WE DON'T HAVE
+ *  ANY INDEPTH UNDERSTANDING OF THOSE BUT AS DEVELOPER I CAN UNDERSTAND THAT THERE ARE LOT
+ *  OF THINGS NEEDED TO BE DONE BETWEEN.
+ * 
+ *  BEST EXAMPLE SEE GRPC IS LANGUAGE AGNOSTIC SO SUPPOSE IN SERVER FUNCTION IS WRITTEN IS 
+ *  JAVA AND THE CLIENT IS CALLING IT FROM JS SO TO COVERT JAVA TO JS SO CLIENT CAN UNDERSTAND
+ *  ALL DONE INTERNALLY BY THESE RUNTIMES AND STUBS.
+ * 
+ * 
+ *  IN REST THE YOU SEND JSON YOU RECIECVE JSON
+ * 
+ *  IN GRPC YOU SEND PROBUFFER YOU RECEIVE PROTOBUFFER (IDL - INTERFACE DESCRIPTION LANGUAGE)
+ * 
+ *  ONE IMPORTENT THING TO LEARN IS GRPC USES HTTP2 AND WE KNOW IN HTTP2 WE CAN SEND DATA IN CHUNK
+ *  ALSO WE CAN DO SINGLE HANDSHAKE AND KEEP CONNECTION ALIVE.
+ * 
+ *  NOW IN REST WHEN YOU SEND DATA YOU DO JSON.STRINGFY() TO SERIANLIZE IT AND THEN CLIENT
+ *  DESERIABLIZE IT 
+ * 
+ * 
+ *  SAME WAY IN GRPC WE USE SOMETHING CALLED PROTCOL SERIALIZATION
+ * 
+ * 
+ *  SINGLE LONG LIVE CONNECATION IS POSSIBLE (PTA HE BHAI YE HTTP2 KA FEATURE HE)
+ * 
+ *  ALSO BI-DIRECTIONAL COMMUNICATION IS POSSIBLE (AGAIN BHAI YE BE HTTP2 HE FEATURE HE)
+ * 
+ * 
+ *                LET'S UNDERSTAND PROTOCOL BUFFER
+ * 
+ * 
+ *  SEE WE TALKED ABOU SERIALIZATION AND DECERIALIZATION OF DATA IN GRPC THAT ENITRE THING
+ *  IS TAKE CARE BY PROTOCOL BUFFER WHICH IS AGAIN BUILD BY GOOGLE. (https://protobuf.dev/)
+ *  
+ *  ITS LIKE IDL BETWEEN CLIENT AND SERVER AND WHATEVER DATA YOU WILL PASS IT WILL CONVERT
+ *  INTO BINARY FIRST AND THEN DOES SERIALIZATION AND DECERILIZATION.
+ * 
+ * 
+ *  ALSO WE LEARNED THATS ITS LANGUAGE AGNOSTIC SO ITS FINE IF WE HAVE DIFFERNT LANGUAGES 
+ *  IN BOTH SIDE PROTOCOL BUTTER WILL TAKE CARE OF IT
+ * 
+ *  .proto ==>> we need to create this file (WE WILL SEE IN PRACTICAL)   
+ *  
+ *      // TWO MUST NEEDED DEPENDENCY
+ *      "@grpc/proto-loader": "^0.7.10",
+        "body-parser": "^1.20.2",
+ * 
+
+          HERE MOST OF LEARNING WILL COME FROM EXAMPLE ONLY SEE FIRST LOOK INTO PROTO FILE THEN SERVER THEN CLIENT AND THEN EXPRESS
+ * 
+           .proto => server.js => client.js => index.js(where we have simple api call with express)
 
 
-
-
+           https://medium.com/@LadyNoBug/grpc-v-s-rest-v-s-others-5d8b6eaa61df  // SEE BEST FEW DIFFERENTS BETWEEN REST AND GRPC
+ */
 
 
 

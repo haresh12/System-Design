@@ -32,7 +32,7 @@ app.post('/create', (req, res) =>{
     });
 })
 
-app.post('/update', (req, res) =>{
+app.put('/update', (req, res) =>{
     const updateCustomer = {
         id: req.body.id,
         name: req.body.name,

@@ -21,7 +21,7 @@ const customers = [{
     address: 'Bangalore'
 }, {
     id: 'cvvbcbewb',
-    name: 'Akshay Saini',
+    name: 'Akshay d',
     age: 22,
     address: 'Uttrakhand'
 }];
