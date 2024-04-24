@@ -8,15 +8,15 @@
 <body>
 
 <h1>Short Polling Example</h1>
-<div id="data-container"></div>
+<div id="data-container">Waiting to show first winner</div>
 
 <script>
 
     async function getData() {
       try {
-        const response = await fetch('/getData');
+        const response = await fetch('/getWinnerNumber');
         const result = await response.json();
-        document.getElementById('data-container').innerHTML = result.data;
+        document.getElementById('data-container').innerHTML = result.currentLuckyNumber;
       } catch(e) {
         console.log(e);
       }

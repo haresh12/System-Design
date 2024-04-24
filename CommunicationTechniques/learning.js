@@ -141,3 +141,68 @@
  *                   CHAT ALSO)
  *   
  */
+
+
+/**
+ *                                                    SHORT POLLING
+ * 
+ * 
+ *  SO AGAIN IF WE START FROM THE BASICS WHEN WE TALK ABOUT SHORT POLLING IT SIMPLY MEANS THAT IS SOME INTERVAL CLIENT IS GOING TO ASK FOR NEW
+ *  INFORMATION TO SERVER TO GET UPDATED DATA
+ *              
+ *                      SENDING YOU REQUEST
+ *   CLIENT REQUEST  ===============================>>>>. SERVER
+ * 
+ *              THIS IS YOUR RESPONSE
+ *   CLIENT  <===================================  SERVER RESPONSE
+ * 
+ *            (AGAIN AFTER SOME INTERVAL EX 5000 MS )
+ *     
+ *  CLIENT REQUEST  ===============================>>>>. SERVER
+ * 
+ *              THIS IS YOUR RESPONSE
+ *   CLIENT  <===================================  SERVER RESPONSE
+ * 
+ *            (AGAIN AFTER SOME INTERVAL EX 5000 MS )
+
+ *   
+ *  CLIENT REQUEST  ===============================>>>>. SERVER
+ * 
+ *              THIS IS YOUR RESPONSE
+ *   CLIENT  <===================================  SERVER RESPONSE
+ * 
+ *  
+ *  HERE SEE CLIENT IS SENDING REQUEST AGAIN AND AGAIN AND SERVER IS RESPONEDING BUT THERE ARE CHANCES THAT CLIENT MY RECEIVE SAME DATA AS SERVER
+ *  MIGHT NOT HAVE ANY UPDATE FOR CLIENT . STILL CLIENT WILL ASK AGAIN AND AGAIN
+ *   
+ *  HERE CONEECTION IS SHORT LIVE  MOSTLY THE TCP HANDSHAKE WILL ALSO HAPPEN WITH EACH REQUEST BUT THAT IS SOMETHING WE CAN SET THROUGH HEADER
+ *   
+ * 
+ *      SOME OF THE CHARCTORSTICS :
+ *  
+ *            1. Short live connection
+ *            2. No persistance connection (To be real same as first one)
+ *            3. Less resource utility
+ *            4. Problem with large user base
+ * 
+ * 
+ *  HERE WE NEED TO UNDERSTAND POINT 4 : SEE THING ABOUT IT YOU HAVE 1 MILLION USER PINGING SERVER EVERY 5 OR 10 SECONDS THIS COULD BE HELL IN SAME
+ *                                       CASES NOW ALSO HERE ANOTHER PROBLEM IS LIKE EVEN MILLIONS USER ARE UPDATING DATA BUT MOST OF THEM WON'T HAVE
+ *                                       ANY NEW UPDATE FROM SERVER .
+ * 
+ *      
+ *    SOME OF THE EXAMPLE WHERE WE CAN USE SHORT POLLING.
+ *   
+ *        YOUTUB LIVE CHAT IS THE BEST ONE THAT I HAVE SEEN  (BEST)
+ *        ANALYTICS DASHBOARD
+ *        NOTIFICATION (NOT SURE HOW THIS WHILL BE GOOD FIT THERE)
+ *        Crickinfo the way the update there commentry is also good use case.  (SECOND BEST)
+ *        VERSION UPDATE 
+ * 
+ * 
+ *  IN COMMUNICATION TECHNIQUES WE HAVE CREATED ONE SIMPLE EXAMPLE WHERE WE NEED TO SHOW DIFFERENT NUMBER FROM 1 TO 10 ITS LIKE LOTTERY SYSTEM
+ *  JISKA NUMBER AAYA VO WINNER
+ * 
+ *  ONE MUST THING IF YOU WANTED TO LEARN FROM HERE IS ALWAYS ALWAYS CLEAR THE INTERVAL ONCE YOU ARE DONE WITH YOUR TASK
+ */
+
