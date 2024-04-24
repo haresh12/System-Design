@@ -1,25 +1,21 @@
 const express = require('express');
 const app = express();
 
-let data = 'Initial Data';
+// let currentLuckyNumber = `Current lottery winner number is ${Math.floor(Math.random()*10)}`;
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/getData', (req, res) => {
+/**
+ *  Suppose every 5s we need winner for lottery
+ */
+app.get('/getWinnerNumber', (req, res) => {
   res.send({
-    data
+    currentLuckyNumber :  `Current lottery winner number is ${Math.floor(Math.random()*10)}`
   });
 });
-
-// Use post/put to update
-app.get('/updateData', (req, res) => {
-  data = 'Updated Data';
-  res.send({
-    data
-  })
-})
 
 const port = process.env.PORT || 5011;
 app.listen(port, () => {
