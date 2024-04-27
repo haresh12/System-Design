@@ -371,3 +371,72 @@
      Status Code: 101 Switching Protocols
  
  */
+
+/**
+ *                                             SERVER SENT EVENT
+ * 
+ *  
+ *  SERVER SENT EVENT (SSE) IS LIT THIS TECHNIQUE OF COMMUNICATION I HAVE NEVER USED BUT ITS INCREDIBLE AFTER LEARNING I CAN SEE DIFFERENT 
+ *  USECASE SO FIRST LETS TALK ABOUT IT FIRST
+ * 
+ *  SSE IS NEW KIND OF COMMUNICATION TECHNIQUE WHICH IS SUPPORTED BY ALMOST ALL BROWSER HERE SEVER WILL SEND EVENTS TO CLIENT FOR EACH CHANGES.
+ *  
+ * 
+ *                            (SENT FIRST REQUEST)
+ *  CLIENT ===========================================================>  SERVER
+ * 
+ *                            (CONNECTION OPENED)
+ *  CLIENT  <=========================================================== SERVER
+ * 
+ *                             (EVENT SENT)
+ *  CLIENT  <=========================================================== SERVER
+ * 
+ *                              (EVENT SENT)
+ *  CLIENT  <=========================================================== SERVER
+ * 
+ *                              (EVENT SENT)
+ *  CLIENT  <=========================================================== SERVER
+ * 
+ *                  (Connection closed either we do or browser timout)
+ *  CLIENT  ===========================================================> SERVER
+ * 
+ * 
+ *  SSE HAS UNI-DIRECTIONAL COMMUNICATION IT MEANS ONLY ONE TIME CLIENT HAS TO CONNECT WITH SERVER OR HAS TO SEND THE REQUEST AFTER THAT
+ *  SERVER WILL SEND EVENTS BASED ON ANY CHANGES MADE.
+ * 
+ *  SEE BIG DIFFERANT BETWEEN LONG POLLING AND SSE IS THAT HERE WE ARE NOT HALTING ANY RESPONSE UNTIL WE GET FULL RESPONSE HERE SO IN 
+ *  CLIENT SIDE YOU WANT SEE LIKE REQUEST PENDING IN CROME RATHER YOU WILL SEE THEN WE HAVE SSE CONNECTION AND AS SOON AS SERVER WILL 
+ *  HAVE ANY CHANGE CLIENT WILL RECEIVE IT.
+ * 
+ *   TO ACHIEVE SSE WE NEED TO ADD SOME HEADERS IN REQUEST 
+ * 
+ *          1. header.set('Connection', 'keep-alive'); 
+ *          2. header.set('Content-Type', 'text/event-stream'); // THIS IS MUST WE ARE GOING TO PASS DATA IN STREAM
+ *          3. header.set(''Catch', 'no-catch');
+ * 
+ * 
+ *  ALSO NEXT QUESTION COMES IN MIND THAT YOU WE CAN RECEIVE THESE EVENTS AT CLIENT SIDE.
+ * 
+ *  SO IN CLIENT WE GET EVENSOURCE WHICH IS IN-BUILT FUNCTIONALITY OF BROWSER AND IN  THOSE EVENTSHOUCE YOU WILL GET 
+ *  EACH NEW EVENT SEE IN SSE EXAMPLE.
+ * 
+ * 
+ *  SEE SERVER SIDE WE HAVE TO SET HEADER AND THEN DO LIKE res.write BUT WE MUST UNDERSTAND FULL ON CLIENT SIDE
+ * 
+ * 
+ *   <script>
+      // Setup sse connection
+      const eventSource = new EventSource("/sse"); // here /sse is endpoint that we created in backend;
+
+      eventSource.onmessage = (event) => {
+        console.log(event.data);
+        const sseDataRef= document.getElementById('sse-data');
+        sseDataRef.innerHTML += `<p>${event.data}</p>`;
+      }; 
+ * 
+
+       SO IN SHORT EVENTSOURCE AT CLIENT SIDE AND THOSE 3 HEADERS AT SERVER SIDE and res.write() RATHER THEN res.send() OR res.json()
+       THIS FEW THINGS ARE KEY TO ACHIEVE SERVER SIDE EVENTS COMMUNICATION TECHNIQUES.
+ */
+
+
