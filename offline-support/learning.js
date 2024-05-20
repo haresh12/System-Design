@@ -10,7 +10,5 @@
  *  Using this service workers we can create offline experience 
  * 
  *  INTERSEPT NETWORK REQUEST
- *  
- *  BEHAVE AS PROXY SERVER
  * 
  */
