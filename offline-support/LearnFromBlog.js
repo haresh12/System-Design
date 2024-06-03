@@ -37,6 +37,33 @@ Clear Old Caches: Delete outdated caches during the activation phase of the serv
 
 Cache Images and Media: Precache and serve images and media files to improve offline experience.
 
-s
+ */
 
+
+/**
+ *    FEW MORE POINTS ABOUT SERVICE WORKERS
+ * 
+ *    Has seperate thread does not block your main thread
+ * 
+ *    Offline support is kind of the use case we use service worker
+ * 
+ *    Intercepter for all request
+ * 
+ *    Only works on https because it act as procy server so there can be man in middle attack
+ * 
+ *    DOM CAN NOT ACCESS
+ * 
+ *    Event driven (activated , installed there are different types of event)
+ * 
+ *    Not shared on different domains and it make sense also
+ * 
+ *    Form of the Javascript file at the end
+ * 
+ *    navigator.serviceWorker  // check if service work is supported or not by browser
+ * 
+ *    navigator.sericeworker.registor.then() // return promise if it is fullfilled means its registor successful
+ * 
+ *    Lifecycle : Register , Installed , Activated , Intercapte request
+ *   
+ *   all above life cycle can be accessed through event as its event driven
  */
