@@ -98,4 +98,6 @@ Cache Images and Media: Precache and serve images and media files to improve off
  * 
  *   THIS IS GOOD QUESTION WE NEED SERVICE WORKER FOR PWA MANADATORY 
  *  https://stackoverflow.com/questions/53594466/are-service-workers-necessary-for-a-progressive-web-application (LEARN MORE ABOUT IT)
+ * 
+ *  https://web.dev/articles/pwas-in-app-stores  (this is lit you can add PWA in app store / play store)
  */
