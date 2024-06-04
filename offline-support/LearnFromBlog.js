@@ -67,3 +67,35 @@ Cache Images and Media: Precache and serve images and media files to improve off
  *   
  *   all above life cycle can be accessed through event as its event driven
  */
+
+
+/**
+ *   PWA : PROGRASIVE WEB APP
+ * 
+ *   Combination of web + mobile apps written purly in JS no native stuff
+ * 
+ *   MDN is best exaple of PWA you will see install button in bar if those are PWA
+ * 
+ *   Most of the native functionality can be used also with PWA
+ * 
+ *   Advantages : 
+ * 
+ *   Easy to discover
+ *   SEO possible 
+ *   Offline experience is better
+ *   Look and feels is better - (UX) 
+ *   Mostly used for mobile first experience
+ *   Responsive ness is lit
+ *   Access to native device api (Camera, Contacts, Blootuth)
+ * 
+ *  SEE AT LAST ITS JUST WEBSITE WITH ONE CONFIG FILE (manifest.json)
+ * 
+ *  manifest.json file is like configuration file that we must have
+ * 
+ *  https://progressier.com/pwa-manifest-generator   // BEST YOU CAN GENERATE YOUR MANIFEST APP FROM HERE
+ * 
+ *  Crome >> Lighthouse >> PWA can give me idea above errors if you don't see install icon
+ * 
+ *   THIS IS GOOD QUESTION WE NEED SERVICE WORKER FOR PWA MANADATORY 
+ *  https://stackoverflow.com/questions/53594466/are-service-workers-necessary-for-a-progressive-web-application (LEARN MORE ABOUT IT)
+ */
