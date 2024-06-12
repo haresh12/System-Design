@@ -101,3 +101,8 @@ Cache Images and Media: Precache and serve images and media files to improve off
  * 
  *  https://web.dev/articles/pwas-in-app-stores  (this is lit you can add PWA in app store / play store)
  */
+
+
+/**
+ *  https://whatwebcando.today/  (WHAT PWA CAN DO FOR YOU GREAT GREAT LEARNING)
+ */
