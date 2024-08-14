@@ -106,3 +106,41 @@ Cache Images and Media: Precache and serve images and media files to improve off
 /**
  *  https://whatwebcando.today/  (WHAT PWA CAN DO FOR YOU GREAT GREAT LEARNING)
  */
+
+
+/**
+ *  Points from new video 
+ * 
+ * Service Workers and PWAs: Key Concepts
+Separate Thread: Service workers run in a separate thread, ensuring they don’t block the main thread or impact the UI.
+
+Offline Support: They enable offline functionality by caching essential assets during installation, allowing the app to work without an internet connection.
+
+HTTPS Requirement: Service workers only operate over HTTPS to prevent man-in-the-middle attacks, acting as a secure proxy for requests.
+
+Event-Driven: Service workers are event-driven, responding to events like install, activate, and fetch to manage caching and network requests.
+
+No DOM Access: They cannot directly access the DOM but can communicate with the main thread using the postMessage API.
+
+Cache First Strategy: This strategy serves resources from the cache first, using the network as a fallback, improving load times for cached assets.
+
+Network First Strategy: Prioritizes fetching from the network, using the cache as a backup if the network is unavailable—ideal for frequently updated content.
+
+Stale-While-Revalidate: This strategy serves cached content while fetching updates from the network to refresh the cache in the background.
+
+Background Sync: Allows syncing data, such as form submissions, when the user goes online, ensuring actions taken offline are completed.
+
+Push Notifications: Service workers can enable push notifications, keeping users informed even when the app isn’t active.
+
+Precache Specific Routes: Specific routes or pages can be cached during the service worker installation for faster load times and offline access.
+
+Clear Old Caches: During the activation phase, outdated caches are deleted to free up space and ensure only the latest assets are stored.
+
+Manifest File in PWAs: PWAs use a manifest.json file for essential app metadata, like icons and theme color, making them installable on devices.
+
+Native-Like Experience: PWAs combine web and mobile app features, offering a native-like experience with responsive design and offline capabilities.
+
+SEO and Discoverability: PWAs benefit from being easily discoverable through search engines, unlike traditional native apps, which are confined to app stores.
+
+
+ */
