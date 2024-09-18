@@ -575,3 +575,370 @@
  */
 
 
+
+                                              /** GRAPHQL */
+
+/**
+ * WHAT IS GRAPHQL?
+ * 
+ * GraphQL is a query language for APIs and a runtime.
+ * It enables clients to specify exactly the data they need.
+ * Developed by Facebook in 2012; open-sourced in 2015.
+ * GraphQL allows for efficient, flexible data fetching.
+ * It replaces traditional REST APIs with a single endpoint.
+ * 
+ * WHY DO WE NEED THAT IN-DEPTH ANSWER?
+ * 
+ * Understanding GraphQL's benefits requires deep insights.
+ * It solves problems like over-fetching and under-fetching.
+ * GraphQL provides strong typing and introspection abilities.
+ * It improves performance and developer experience greatly.
+ * Mastery involves knowing its architecture and best practices.
+ * 
+ * REST VS GRAPHQL TABLE FORMAT
+ * 
+ * | Aspect          | REST API                         | GraphQL                          |
+ * |-----------------|----------------------------------|----------------------------------|
+ * | Data Fetching   | Multiple endpoints, fixed data   | Single endpoint, flexible queries|
+ * | Over-fetching   | Common, returns extra data       | Eliminated, client specifies fields|
+ * | Under-fetching  | Requires multiple requests       | Single request fetches all needed data|
+ * | Versioning      | Needs new endpoints for changes  | Evolves via schema, no versioning needed|
+ * | Performance     | Can be inefficient               | Optimized data retrieval         |
+ * | Tooling         | Limited introspection            | Rich tooling via schema introspection|
+ * | Error Handling  | Relies on HTTP status codes      | Custom error responses in data   |
+ * | Caching         | HTTP caching mechanisms          | Client-side caching strategies   |
+ * 
+ * WHAT IS SDL IN GRAPHQL?
+ * 
+ * SDL stands for Schema Definition Language.
+ * It's a syntax to define GraphQL schemas precisely.
+ * SDL describes types, queries, mutations, and subscriptions.
+ * It provides a clear, human-readable schema representation.
+ * SDL is central to schema-first GraphQL development.
+ * 
+ * GRAPHQL UNDER THE HOOD?
+ * 
+ * GraphQL operates on a type system and a schema.
+ * When a query arrives, it's parsed into an AST.
+ * The query is validated against the schema types.
+ * Execution involves calling resolvers for each field.
+ * Resolvers fetch data from databases or services.
+ * The response matches the structure of the query.
+ * GraphQL's execution engine optimizes data retrieval.
+ * 
+ * BENEFITS OF GRAPHQL
+ * 
+ * - **Precise Data Fetching**: Clients get exact data needed.
+ * - **Single Endpoint**: Simplifies API architecture greatly.
+ * - **Strong Typing**: Enhances validation and tooling options.
+ * - **Self-Documenting**: Schema acts as documentation inherently.
+ * - **Efficient Networking**: Reduces bandwidth and latency issues.
+ * - **Introspection**: Clients can query the schema dynamically.
+ * - **Easier Evolution**: Add fields without breaking clients.
+ * - **Real-time Updates**: Supports subscriptions for live data.
+ * - **Improved Developer Experience**: Better tooling and workflows.
+ * 
+ * DETAILED IDEA ABOUT SCHEMA, TYPE DEFINITION (QUERY AND MUTATION), RESOLVERS
+ * 
+ * - **Schema**: Core definition of API's data and operations.
+ *   It specifies types, queries, mutations, and subscriptions.
+ *   Acts as a contract between client and server.
+ * - **Type Definitions**:
+ *   - **Types**: Define objects with fields and field types.
+ *     Custom types model application domain entities.
+ *   - **Query**: Entry point for read operations; fetch data.
+ *   - **Mutation**: Entry point for write operations; modify data.
+ *   - **Subscription**: For real-time data streams via WebSockets.
+ * - **Resolvers**: Functions mapping fields to data sources.
+ *   They execute logic to fetch or compute field data.
+ *   Resolvers can be synchronous or return promises.
+ * 
+ * CUSTOM RESOLVER IN GRAPHQL? WITH SIMPLE EXAMPLE
+ * 
+ * A custom resolver fetches data for a specific field.
+ * 
+ * **Example**:
+ * 
+ * ```javascript
+ * const resolvers = {
+ *   Query: {
+ *     user: (parent, args, context) => {
+ *       return db.getUserById(args.id);
+ *     },
+ *   },
+ *   User: {
+ *     fullName: (parent) => {
+ *       return `${parent.firstName} ${parent.lastName}`;
+ *     },
+ *   },
+ * };
+ * ```
+ * 
+ * Here, `user` resolver fetches a user by ID.
+ * `fullName` computes a user's full name dynamically.
+ * 
+ * EXAMPLE OF INBUILT TYPE AND CUSTOM TYPE IN GRAPHQL
+ * 
+ * **Inbuilt Types**: `Int`, `Float`, `String`, `Boolean`, `ID`.
+ * 
+ * **Custom Type Example**:
+ * 
+ * ```graphql
+ * type Article {
+ *   id: ID!
+ *   title: String!
+ *   content: String!
+ *   author: User!
+ * }
+ * 
+ * type User {
+ *   id: ID!
+ *   username: String!
+ *   articles: [Article!]!
+ * }
+ * ```
+ * 
+ * These types define the structure of `Article` and `User`.
+ * 
+ * WHY DO WE HAVE ALL REQUESTS AS POST IN GRAPHQL?
+ * 
+ * GraphQL uses POST for its complex query payloads.
+ * GET requests have URL length limitations and caching issues.
+ * POST allows sending queries in the request body securely.
+ * It avoids exposing query details in URLs.
+ * POST supports more extensive HTTP features needed.
+ * 
+ * RESOLVER (IN-DEPTH)
+ * 
+ * A resolver is a function that resolves a field's value.
+ * Resolvers can fetch data from any source needed.
+ * They receive arguments and context for processing.
+ * Resolvers are chained based on the query's fields.
+ * They can handle authentication and authorization logic.
+ * Efficient resolvers are key to GraphQL performance.
+ * 
+ * WHAT IS (parent, args, context)? WHERE CAN WE USE THEM? BEST USE CASE OF EACH ONE OF THEM
+ * 
+ * - **parent**: The return value of the parent resolver.
+ *   Useful for accessing data from parent fields.
+ *   *Example*: Getting a user's ID to fetch posts.
+ * - **args**: Arguments provided in the field's query.
+ *   Used to filter or identify data to fetch.
+ *   *Example*: `args.id` to find a specific user.
+ * - **context**: Shared object among all resolvers.
+ *   Holds per-request state like authentication info.
+ *   *Example*: Accessing the logged-in user's ID.
+ * 
+ * OPTIONAL FIELD IN GRAPHQL: HOW CAN WE HAVE OPTIONAL VALUES IN TYPES
+ * 
+ * Fields are optional unless marked non-null with `!`.
+ * To make a field optional, omit the `!` in type.
+ * 
+ * **Example**:
+ * 
+ * ```graphql
+ * type Profile {
+ *   id: ID!
+ *   bio: String
+ *   avatarUrl: String
+ * }
+ * ```
+ * 
+ * Here, `bio` and `avatarUrl` are optional fields.
+ * 
+ * IN-DEPTH KNOWLEDGE ABOUT APOLLO CLIENT AND APOLLO SERVER
+ * 
+ * - **Apollo Server**:
+ *   A GraphQL server library for Node.js applications.
+ *   Supports schema creation, resolvers, and middleware.
+ *   Integrates with Express, Koa, and other frameworks.
+ *   Provides features like data sources and schema stitching.
+ * - **Apollo Client**:
+ *   A comprehensive GraphQL client for JavaScript apps.
+ *   Manages local and remote data with GraphQL.
+ *   Offers advanced caching and state management.
+ *   Integrates with React, Angular, Vue, and more.
+ *   Supports hooks, higher-order components, and more.
+ * 
+ * QUERY AND MUTATION IN-DEPTH
+ * 
+ * - **Query**:
+ *   Used to read or fetch data from the server.
+ *   Should be side-effect free and idempotent.
+ *   Defined under the `Query` type in the schema.
+ * - **Mutation**:
+ *   Used to modify server-side data or state.
+ *   Can have side effects and change data.
+ *   Defined under the `Mutation` type in the schema.
+ * 
+ * **Example**:
+ * 
+ * ```graphql
+ * type Query {
+ *   getPosts(authorId: ID): [Post!]!
+ * }
+ * 
+ * type Mutation {
+ *   createPost(input: PostInput!): Post!
+ * }
+ * ```
+ * 
+ * WHAT IS FRAGMENT IN APOLLO CLIENT
+ * 
+ * A fragment is a reusable piece of query logic.
+ * It allows for sharing fields between queries.
+ * Reduces duplication and promotes maintainability.
+ * 
+ * **Example**:
+ * 
+ * ```graphql
+ * fragment PostFields on Post {
+ *   id
+ *   title
+ *   content
+ * }
+ * 
+ * query getPost($id: ID!) {
+ *   post(id: $id) {
+ *     ...PostFields
+ *   }
+ * }
+ * ```
+ * 
+ * WHAT IS SUSPENSE IN APOLLO CLIENT
+ * 
+ * Suspense is a React feature for data fetching.
+ * Apollo Client integrates with Suspense for smoother UX.
+ * It simplifies handling of loading states in components.
+ * Suspense lets components wait for data before rendering.
+ * It's currently experimental but promising for the future.
+ * 
+ * IN-DEPTH KNOWLEDGE ABOUT SUBSCRIPTION WITH BEST USE CASE AND SHORT EXAMPLE
+ * 
+ * **Subscriptions** enable real-time data over WebSockets.
+ * They allow clients to receive live updates from the server.
+ * Best for chat apps, live feeds, and notifications.
+ * 
+ * **Example Schema**:
+ * 
+ * ```graphql
+ * type Subscription {
+ *   messageSent(channelId: ID!): Message!
+ * }
+ * ```
+ * 
+ * **Example Resolver**:
+ * 
+ * ```javascript
+ * const { PubSub } = require('graphql-subscriptions');
+ * const pubsub = new PubSub();
+ * 
+ * const resolvers = {
+ *   Subscription: {
+ *     messageSent: {
+ *       subscribe: (_, { channelId }) => {
+ *         return pubsub.asyncIterator(`MESSAGE_SENT_${channelId}`);
+ *       },
+ *     },
+ *   },
+ * };
+ * 
+ * // When a new message is sent:
+ * pubsub.publish(`MESSAGE_SENT_${channelId}`, { messageSent: newMessage });
+ * ```
+ * 
+ * This setup delivers messages to subscribed clients in real-time.
+ * 
+ * ADDITIONAL ADVANCED QUESTIONS:
+ * 
+ * WHAT ARE DATA LOADERS AND HOW DO THEY HELP WITH N+1 PROBLEM?
+ * 
+ * Data Loaders batch and cache database requests efficiently.
+ * They prevent redundant fetching in nested queries.
+ * Address the N+1 problem common in GraphQL resolvers.
+ * 
+ * **Example**:
+ * 
+ * ```javascript
+ * const DataLoader = require('dataloader');
+ * const userLoader = new DataLoader(keys => fetchUsersByIds(keys));
+ * ```
+ * 
+ * EXPLAIN DIRECTIVES IN GRAPHQL AND THEIR USE CASES
+ * 
+ * Directives provide a way to annotate schema elements.
+ * They can modify execution or transformation of fields.
+ * Built-in directives include `@include` and `@skip`.
+ * Custom directives can implement authentication, logging.
+ * 
+ * **Example**:
+ * 
+ * ```graphql
+ * directive @auth(requires: Role = ADMIN) on FIELD_DEFINITION
+ * 
+ * type Query {
+ *   sensitiveData: String @auth(requires: USER)
+ * }
+ * ```
+ * 
+ * WHAT IS SCHEMA STITCHING AND FEDERATION?
+ * 
+ * - **Schema Stitching**: Combining multiple schemas into one.
+ *   It allows for modular and scalable schema design.
+ * - **Federation**: Enables distributed microservices to compose a single graph.
+ *   Apollo Federation is a popular implementation.
+ *   It allows teams to own subsets of the overall schema.
+ * 
+ * HOW DOES GRAPHQL HANDLE ERROR MANAGEMENT?
+ * 
+ * Errors are returned in a standardized `errors` array.
+ * Each error includes a message and optional locations.
+ * Partial data can be returned alongside errors.
+ * Custom error handling can be implemented in resolvers.
+ * 
+ * WHAT IS THE ROLE OF BATCHING AND CACHING IN GRAPHQL?
+ * 
+ * Batching combines multiple requests into one.
+ * Caching stores responses to improve performance.
+ * They reduce load on databases and improve latency.
+ * Apollo Client provides built-in caching mechanisms.
+ * 
+ * HOW TO IMPLEMENT AUTHENTICATION AND AUTHORIZATION IN GRAPHQL?
+ * 
+ * Use `context` to pass auth information to resolvers.
+ * Middleware can validate tokens before query execution.
+ * Resolvers can check user permissions as needed.
+ * Directives can enforce auth rules declaratively.
+ * 
+ * WHAT ARE GRAPHQL SCALAR TYPES AND HOW TO CREATE CUSTOM SCALARS?
+ * 
+ * Scalar types represent leaf values in the schema.
+ * Built-in scalars include `String`, `Int`, `Boolean`.
+ * Custom scalars handle types like `Date`, `JSON`, `URL`.
+ * 
+ * **Example**:
+ * 
+ * ```graphql
+ * scalar Date
+ * 
+ * type Event {
+ *   id: ID!
+ *   date: Date!
+ * }
+ * ```
+ * 
+ * **Resolver**:
+ * 
+ * ```javascript
+ * const { GraphQLScalarType } = require('graphql');
+ * 
+ * const DateScalar = new GraphQLScalarType({
+ *   name: 'Date',
+ *   parseValue: (value) => new Date(value),
+ *   serialize: (value) => value.toISOString(),
+ *   parseLiteral: (ast) => new Date(ast.value),
+ * });
+ * ```
+ * 
+ * This custom scalar handles date serialization and parsing.
+ */
