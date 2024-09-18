@@ -39,7 +39,7 @@
  */
 
 /**
- *                               BASIC ABOUT ALL AVAILABLE PROTOCOLS
+ *                                     BASIC ABOUT ALL AVAILABLE PROTOCOLS
  * 
  *    HTTP, HTTPS, HTTP/2, HTTP/3, UDP, TCP, WEBSOCKET, FTP, SMTP
  * 
@@ -101,3 +101,477 @@
  * 
  * There you have it, fellow engineer! A quick tour of the protocols that make the internet work. Remember, each protocol has its own strengths and use cases, so choose wisely when designing your web applications. Happy coding!
  */
+
+                                           /** REQUEST HEADERS , RESPONSE HEADERS AND STATUS CODES */
+
+
+
+/**
+ * REQUEST HEADERS
+ *
+ * Below are the most important HTTP request headers with detailed explanations and examples.
+ *
+ * 1. **Host**
+ *    - **Description**: Specifies the domain name of the server (for virtual hosting), and optionally the TCP port number.
+ *    - **Example**:
+ *      ```
+ *      Host: www.example.com
+ *      ```
+ *    - **Details**: The `Host` header is mandatory in HTTP/1.1 requests. It allows the server to distinguish between different domains hosted on the same IP address.
+ *
+ * 2. **User-Agent**
+ *    - **Description**: Contains information about the user agent (browser or client software) making the request.
+ *    - **Example**:
+ *      ```
+ *      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+ *      ```
+ *    - **Details**: Useful for content negotiation, analytics, and logging. It can help servers deliver optimized content for specific browsers or devices.
+ *
+ * 3. **Accept**
+ *    - **Description**: Informs the server about the types of content the client can process.
+ *    - **Example**:
+ *      ```
+ *      Accept: text/html,application/xhtml+xml,application/xml;q=0.9
+ *      ```
+ *    - **Details**: Helps the server select the appropriate response format based on client preferences.
+ *
+ * 4. **Accept-Language**
+ *    - **Description**: Indicates the preferred natural languages for the response.
+ *    - **Example**:
+ *      ```
+ *      Accept-Language: en-US,en;q=0.5
+ *      ```
+ *    - **Details**: Used in content negotiation for localization, allowing servers to provide content in the user's language.
+ *
+ * 5. **Accept-Encoding**
+ *    - **Description**: Lists the content encoding (compression algorithms) the client can handle.
+ *    - **Example**:
+ *      ```
+ *      Accept-Encoding: gzip, deflate, br
+ *      ```
+ *    - **Details**: Enables servers to send compressed responses, reducing bandwidth usage and improving load times.
+ *
+ * 6. **Connection**
+ *    - **Description**: Controls whether the network connection stays open after the current transaction.
+ *    - **Example**:
+ *      ```
+ *      Connection: keep-alive
+ *      ```
+ *    - **Details**: `keep-alive` allows multiple requests over a single connection, improving performance.
+ *
+ * 7. **Cookie**
+ *    - **Description**: Contains stored HTTP cookies previously sent by the server with `Set-Cookie`.
+ *    - **Example**:
+ *      ```
+ *      Cookie: sessionId=abc123; theme=light; lang=en-US
+ *      ```
+ *    - **Details**: Used for session management, personalization, and tracking user activities.
+ *
+ * 8. **Content-Type**
+ *    - **Description**: Indicates the media type of the resource in the request body.
+ *    - **Example**:
+ *      ```
+ *      Content-Type: application/json
+ *      ```
+ *    - **Details**: Essential for POST and PUT requests containing a body, so the server knows how to parse it.
+ *
+ * 9. **Content-Length**
+ *    - **Description**: The length of the request body in bytes.
+ *    - **Example**:
+ *      ```
+ *      Content-Length: 348
+ *      ```
+ *    - **Details**: Required for requests with a body to indicate where the body ends.
+ *
+ * 10. **Authorization**
+ *     - **Description**: Contains credentials to authenticate a user agent with a server.
+ *     - **Example**:
+ *       ```
+ *       Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+ *       ```
+ *     - **Details**: Supports various authentication schemes like Basic, Bearer tokens, and OAuth.
+ *
+ * 11. **Referer**
+ *     - **Description**: The address of the previous web page from which a link to the currently requested page was followed.
+ *     - **Example**:
+ *       ```
+ *       Referer: https://www.google.com/
+ *       ```
+ *     - **Details**: Used for analytics, logging, and security purposes.
+ *
+ * 12. **Cache-Control**
+ *     - **Description**: Directives for caching mechanisms in both requests and responses.
+ *     - **Example**:
+ *       ```
+ *       Cache-Control: no-cache
+ *       ```
+ *     - **Details**: `no-cache` indicates that the client wants a fresh response, avoiding cached versions.
+ *
+ * 13. **If-Modified-Since**
+ *     - **Description**: Allows a 304 Not Modified response if content is unchanged since the specified date.
+ *     - **Example**:
+ *       ```
+ *       If-Modified-Since: Wed, 21 Oct 2020 07:28:00 GMT
+ *       ```
+ *     - **Details**: Optimizes bandwidth by requesting content only if it has changed.
+ *
+ * 14. **If-None-Match**
+ *     - **Description**: Makes the request conditional based on the ETag.
+ *     - **Example**:
+ *       ```
+ *       If-None-Match: "686897696a7c876b7e"
+ *       ```
+ *     - **Details**: Used for caching; the server returns a 304 Not Modified if the ETag matches.
+ *
+ * 15. **Range**
+ *     - **Description**: Requests a specific part of a document.
+ *     - **Example**:
+ *       ```
+ *       Range: bytes=500-999
+ *       ```
+ *     - **Details**: Useful for resuming interrupted downloads or streaming media.
+ *
+ * 16. **Origin**
+ *     - **Description**: Initiates a request for cross-origin resource sharing (CORS).
+ *     - **Example**:
+ *       ```
+ *       Origin: https://www.example.com
+ *       ```
+ *     - **Details**: Used to determine if the server should allow the request based on CORS policy.
+ *
+ * 17. **Upgrade-Insecure-Requests**
+ *     - **Description**: Signals the client's preference for an encrypted and authenticated response.
+ *     - **Example**:
+ *       ```
+ *       Upgrade-Insecure-Requests: 1
+ *       ```
+ *     - **Details**: Indicates that the client prefers HTTPS over HTTP.
+ *
+ * 18. **DNT (Do Not Track)**
+ *     - **Description**: Expresses the user's tracking preference.
+ *     - **Example**:
+ *       ```
+ *       DNT: 1
+ *       ```
+ *     - **Details**: `1` means the user does not want to be tracked. Not all servers honor this header.
+ *
+ * 19. **X-Requested-With**
+ *     - **Description**: Used to identify Ajax requests.
+ *     - **Example**:
+ *       ```
+ *       X-Requested-With: XMLHttpRequest
+ *       ```
+ *     - **Details**: Non-standard header, but commonly used in web development to detect Ajax requests.
+ *
+ * 20. **Accept-Charset**
+ *     - **Description**: Indicates what character sets the client is able to understand.
+ *     - **Example**:
+ *       ```
+ *       Accept-Charset: utf-8, iso-8859-1;q=0.5
+ *       ```
+ *    - **Details**: Helps the server provide content in a compatible character encoding.
+ */
+
+/**
+ * RESPONSE HEADERS
+ *
+ * Below are the most important HTTP response headers with detailed explanations and examples.
+ *
+ * 1. **Content-Type**
+ *    - **Description**: Indicates the media type of the resource sent to the client.
+ *    - **Example**:
+ *      ```
+ *      Content-Type: text/html; charset=UTF-8
+ *      ```
+ *    - **Details**: Essential for the client to correctly interpret the data.
+ *
+ * 2. **Content-Length**
+ *    - **Description**: The length of the response body in bytes.
+ *    - **Example**:
+ *      ```
+ *      Content-Length: 2048
+ *      ```
+ *    - **Details**: Helps the client know when the response has been fully received.
+ *
+ * 3. **Date**
+ *    - **Description**: The date and time at which the message was originated.
+ *    - **Example**:
+ *      ```
+ *      Date: Mon, 27 Jul 2020 12:28:53 GMT
+ *      ```
+ *    - **Details**: Useful for caching and debugging purposes.
+ *
+ * 4. **Server**
+ *    - **Description**: Contains information about the software used by the origin server.
+ *    - **Example**:
+ *      ```
+ *      Server: Apache/2.4.41 (Ubuntu)
+ *      ```
+ *    - **Details**: May reveal server details; sometimes omitted or customized for security reasons.
+ *
+ * 5. **Set-Cookie**
+ *    - **Description**: Sends cookies from the server to the client.
+ *    - **Example**:
+ *      ```
+ *      Set-Cookie: sessionId=abc123; Path=/; Secure; HttpOnly; SameSite=Strict
+ *      ```
+ *    - **Details**: Manages session data and user preferences.
+ *
+ * 6. **Cache-Control**
+ *    - **Description**: Directives for caching mechanisms in both requests and responses.
+ *    - **Example**:
+ *      ```
+ *      Cache-Control: max-age=3600, must-revalidate
+ *      ```
+ *    - **Details**: Controls how and for how long the response is cached.
+ *
+ * 7. **Expires**
+ *    - **Description**: Gives the date/time after which the response is considered stale.
+ *    - **Example**:
+ *      ```
+ *      Expires: Wed, 21 Oct 2020 07:28:00 GMT
+ *      ```
+ *    - **Details**: Used for HTTP/1.0 caches; superseded by `Cache-Control` in HTTP/1.1.
+ *
+ * 8. **Last-Modified**
+ *    - **Description**: Indicates the date and time at which the resource was last modified.
+ *    - **Example**:
+ *      ```
+ *      Last-Modified: Tue, 15 Nov 2020 12:45:26 GMT
+ *      ```
+ *    - **Details**: Used with conditional requests to optimize caching.
+ *
+ * 9. **ETag**
+ *    - **Description**: A unique identifier for a specific version of a resource.
+ *    - **Example**:
+ *      ```
+ *      ETag: "33a64df551425fcc55e4d42a148795d9f25f89d4"
+ *      ```
+ *    - **Details**: Used for caching and synchronization.
+ *
+ * 10. **Location**
+ *     - **Description**: Used in redirection or when a new resource has been created.
+ *     - **Example**:
+ *       ```
+ *       Location: https://www.example.com/new-page
+ *       ```
+ *     - **Details**: Commonly used with status codes like 301, 302, 303, 307, and 308.
+ *
+ * 11. **Content-Encoding**
+ *     - **Description**: Specifies any encoding transformations applied to the resource.
+ *     - **Example**:
+ *       ```
+ *       Content-Encoding: gzip
+ *       ```
+ *     - **Details**: Indicates that the client must decode the response before using it.
+ *
+ * 12. **Access-Control-Allow-Origin**
+ *     - **Description**: Part of the CORS mechanism; specifies which origins can access the resource.
+ *     - **Example**:
+ *       ```
+ *       Access-Control-Allow-Origin: *
+ *       ```
+ *     - **Details**: A value of `*` allows all domains; more restrictive policies enhance security.
+ *
+ * 13. **WWW-Authenticate**
+ *     - **Description**: Defines the authentication method that should be used to access a resource.
+ *     - **Example**:
+ *       ```
+ *       WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
+ *       ```
+ *     - **Details**: Sent with a 401 Unauthorized status code to prompt the user for credentials.
+ *
+ * 14. **Retry-After**
+ *     - **Description**: Indicates how long the user agent should wait before making a follow-up request.
+ *     - **Example**:
+ *       ```
+ *       Retry-After: 120
+ *       ```
+ *     - **Details**: Commonly used with 503 Service Unavailable responses.
+ *
+ * 15. **Strict-Transport-Security**
+ *     - **Description**: Enforces secure (HTTPS) connections to the server.
+ *     - **Example**:
+ *       ```
+ *       Strict-Transport-Security: max-age=31536000; includeSubDomains
+ *       ```
+ *     - **Details**: Helps prevent man-in-the-middle attacks by ensuring browsers always use HTTPS.
+ *
+ * 16. **X-Content-Type-Options**
+ *     - **Description**: Prevents MIME-type sniffing, reducing exposure to drive-by download attacks.
+ *     - **Example**:
+ *       ```
+ *       X-Content-Type-Options: nosniff
+ *       ```
+ *     - **Details**: Instructs browsers not to override the response's `Content-Type`.
+ *
+ * 17. **X-Frame-Options**
+ *     - **Description**: Controls whether the browser should be allowed to render a page in a frame, iframe, embed, or object.
+ *     - **Example**:
+ *       ```
+ *       X-Frame-Options: SAMEORIGIN
+ *       ```
+ *     - **Details**: Helps prevent clickjacking attacks by restricting framing of content.
+ *
+ * 18. **Content-Security-Policy**
+ *     - **Description**: Controls resources the user agent is allowed to load for a given page.
+ *     - **Example**:
+ *       ```
+ *       Content-Security-Policy: default-src 'self'; img-src https://images.example.com
+ *       ```
+ *     - **Details**: Enhances security by reducing the risk of XSS attacks.
+ *
+ * 19. **Transfer-Encoding**
+ *     - **Description**: Specifies the form of encoding used to safely transfer the payload body to the user.
+ *     - **Example**:
+ *       ```
+ *       Transfer-Encoding: chunked
+ *       ```
+ *     - **Details**: Used when the content length is unknown at the start of transmission.
+ *
+ * 20. **Accept-Ranges**
+ *     - **Description**: Indicates if the server supports range requests.
+ *     - **Example**:
+ *       ```
+ *       Accept-Ranges: bytes
+ *       ```
+ *     - **Details**: Allows clients to resume interrupted downloads.
+ */
+
+/**
+ * HTTP STATUS CODES
+ *
+ * Below are the most important HTTP status codes, including the ones you mentioned (402, 407, 307, 308, 507), with detailed explanations.
+ *
+ * **1XX Informational Responses**
+ *
+ * 1. **100 Continue**
+ *    - **Description**: The server has received the request headers, and the client should proceed to send the request body.
+ *    - **Usage**: Mainly with large POST requests to check if the server is ready to accept the request.
+ *
+ * 2. **101 Switching Protocols**
+ *    - **Description**: The requester has asked the server to switch protocols, and the server is acknowledging that it will do so.
+ *    - **Usage**: Used in WebSocket handshake requests.
+ *
+ * **2XX Successful Responses**
+ *
+ * 3. **200 OK**
+ *    - **Description**: The request has succeeded.
+ *    - **Usage**: Standard response for successful HTTP requests.
+ *
+ * 4. **201 Created**
+ *    - **Description**: The request has been fulfilled, resulting in the creation of a new resource.
+ *    - **Usage**: Used with POST requests when a new resource is created.
+ *
+ * 5. **202 Accepted**
+ *    - **Description**: The request has been accepted for processing, but the processing has not been completed.
+ *    - **Usage**: For asynchronous processing.
+ *
+ * 6. **204 No Content**
+ *    - **Description**: The server successfully processed the request, and is not returning any content.
+ *    - **Usage**: When no content needs to be returned (e.g., after a DELETE request).
+ *
+ * **3XX Redirection Messages**
+ *
+ * 7. **301 Moved Permanently**
+ *    - **Description**: The URL of the requested resource has been changed permanently.
+ *    - **Usage**: URL redirection; the new URL is provided in the `Location` header.
+ *
+ * 8. **302 Found**
+ *    - **Description**: The URI of the requested resource has been changed temporarily.
+ *    - **Usage**: Temporary redirections.
+ *
+ * 9. **303 See Other**
+ *    - **Description**: The server is redirecting the client to a different resource, typically using GET.
+ *    - **Usage**: After a POST request to redirect to a confirmation page.
+ *
+ * 10. **304 Not Modified**
+ *     - **Description**: Indicates that the resource has not been modified since the version specified by the request headers.
+ *     - **Usage**: Used for caching purposes with conditional GET requests.
+ *
+ * 11. **307 Temporary Redirect**
+ *     - **Description**: The requested resource resides temporarily under a different URI.
+ *     - **Usage**: Similar to 302, but the request method should not change (e.g., POST should remain POST).
+ *
+ * 12. **308 Permanent Redirect**
+ *     - **Description**: The requested resource has been assigned a new permanent URI.
+ *     - **Usage**: Similar to 301, but the request method should not change.
+ *
+ * **4XX Client Error Responses**
+ *
+ * 13. **400 Bad Request**
+ *     - **Description**: The server could not understand the request due to invalid syntax.
+ *     - **Usage**: Malformed request syntax, invalid request message framing.
+ *
+ * 14. **401 Unauthorized**
+ *     - **Description**: The client must authenticate itself to get the requested response.
+ *     - **Usage**: Missing or invalid authentication credentials.
+ *
+ * 15. **402 Payment Required**
+ *     - **Description**: Reserved for future use, intended for digital payment systems.
+ *     - **Usage**: Some APIs use it for quota limitations or payment requirements.
+ *
+ * 16. **403 Forbidden**
+ *     - **Description**: The client does not have access rights to the content.
+ *     - **Usage**: Authentication succeeded but authenticated user does not have permission.
+ *
+ * 17. **404 Not Found**
+ *     - **Description**: The server cannot find the requested resource.
+ *     - **Usage**: The endpoint is valid but the resource itself does not exist.
+ *
+ * 18. **405 Method Not Allowed**
+ *     - **Description**: The request method is known by the server but is not supported by the target resource.
+ *     - **Usage**: E.g., using GET on a form that requires POST.
+ *
+ * 19. **407 Proxy Authentication Required**
+ *     - **Description**: The client must first authenticate itself with the proxy.
+ *     - **Usage**: When access is controlled by a proxy that requires authentication.
+ *
+ * 20. **408 Request Timeout**
+ *     - **Description**: The server would like to shut down this unused connection.
+ *     - **Usage**: Server times out waiting for the request.
+ *
+ * 21. **409 Conflict**
+ *     - **Description**: Indicates a request conflict with current state of the server.
+ *     - **Usage**: For example, editing conflicts in version control systems.
+ *
+ * 22. **410 Gone**
+ *     - **Description**: The resource requested is no longer available and will not be available again.
+ *     - **Usage**: Indicates permanent removal.
+ *
+ * 23. **429 Too Many Requests**
+ *     - **Description**: The user has sent too many requests in a given amount of time.
+ *     - **Usage**: Rate limiting.
+ *
+ * **5XX Server Error Responses**
+ *
+ * 24. **500 Internal Server Error**
+ *     - **Description**: The server has encountered a situation it doesn't know how to handle.
+ *     - **Usage**: Generic error message when no more specific message is suitable.
+ *
+ * 25. **501 Not Implemented**
+ *     - **Description**: The request method is not supported by the server and cannot be handled.
+ *     - **Usage**: E.g., the server does not recognize the request method.
+ *
+ * 26. **502 Bad Gateway**
+ *     - **Description**: The server was acting as a gateway or proxy and received an invalid response from the upstream server.
+ *     - **Usage**: Issues with reverse proxies or load balancers.
+ *
+ * 27. **503 Service Unavailable**
+ *     - **Description**: The server is not ready to handle the request.
+ *     - **Usage**: Server maintenance or overload.
+ *
+ * 28. **504 Gateway Timeout**
+ *     - **Description**: The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.
+ *     - **Usage**: Network errors or slow upstream servers.
+ *
+ * 29. **505 HTTP Version Not Supported**
+ *     - **Description**: The HTTP version used in the request is not supported by the server.
+ *     - **Usage**: When the server does not support the HTTP protocol version used in the request.
+ *
+ * 30. **507 Insufficient Storage**
+ *     - **Description**: The server is unable to store the representation needed to complete the request.
+ *     - **Usage**: When the server runs out of storage space.
+ */
+
+
