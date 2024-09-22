@@ -3916,7 +3916,8 @@
  * **Answer:**
  *
  * **Definition:**
- * A **Permissions Policy** is a mechanism that allows web developers to control which features and APIs can be used in their web applications or by embedded content such as iframes. It was formerly known as **Feature Policy**.
+ * A **Permissions Policy** is a mechanism that allows web developers to control which features and APIs can be used in
+ *  their web applications or by embedded content such as iframes. It was formerly known as **Feature Policy**.
  *
  * **Purpose:**
  * - **Security Enhancement:** It helps in reducing the attack surface by restricting access to potentially dangerous browser features.
