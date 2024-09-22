@@ -1162,4 +1162,3 @@
  * By grasping these concepts, you'll be well-equipped to use gRPC in your frontend projects where appropriate.
  *
  */
-                                 
