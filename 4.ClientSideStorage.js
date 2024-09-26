@@ -2106,4 +2106,6 @@ Foreign Fetch: Service workers can intercept and handle requests made from exter
  *
  * 4. **Reactivity Systems**: Understanding the underlying reactivity systems in libraries (like Vue's reactivity 
  *    or MobX's observable pattern) can provide deeper insights into performance optimizations and state updates.
+ *  * 1. **State Normalization**: Developers often overlook the importance of normalizing state, which can prevent 
+ *    unnecessary re-renders and make state easier to manage, especially with nested data structures.
  */
