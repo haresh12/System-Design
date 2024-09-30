@@ -1481,3 +1481,45 @@
  *
  *  In conclusion, a bundler plays a crucial role in modern web development, automating and optimizing many tasks that would otherwise require significant manual effort. Understanding the responsibilities of a bundler can greatly enhance the development workflow, leading to faster, more efficient applications.
  */
+
+
+/**
+ *  **1. What is Speed Index?**
+ *  - Speed Index is a web performance metric that measures how quickly content is visually displayed during page load. 
+ *  - It calculates how long it takes for the majority of the page to be visible to the user.
+ *  - This metric is critical because a lower Speed Index score means that content appears faster, improving perceived performance.
+ *  - Speed Index is calculated by monitoring the visual progression of page rendering and assigning a score based on how quickly visible elements load.
+ *  - Tools like Lighthouse or WebPageTest.org measure Speed Index by recording video frames of the page loading process.
+ *  - Speed Index is important because it reflects the user’s experience of how quickly they can interact with meaningful content.
+ *  - Improving Speed Index involves optimizing render-blocking resources (CSS, JavaScript), using lazy loading, and reducing server response times.
+ *
+ *  **2. What is TTFB (Time to First Byte)?**
+ *  - TTFB is a metric that measures the time taken for the browser to receive the first byte of data from the server after a request is made.
+ *  - It is a key server responsiveness metric, indicating how fast the server can start delivering content to the client.
+ *  - TTFB consists of three components: DNS lookup time, server processing time, and data transmission latency.
+ *  - Low TTFB is essential for good web performance, as a high TTFB can delay all subsequent content loading and impact user experience.
+ *  - To optimize TTFB, server-side optimizations are required, such as reducing server load, optimizing database queries, and enabling efficient server caching.
+ *  - Content Delivery Networks (CDNs) can help reduce TTFB by distributing content across multiple geographically located servers.
+ *  - A TTFB of under 200ms is generally considered good, but this varies depending on network conditions and server location.
+ *
+ *  **3. What is TBT (Total Blocking Time)?**
+ *  - TBT measures the total amount of time during which the main thread is blocked and unable to respond to user input.
+ *  - It focuses on the time between First Contentful Paint (FCP) and Time to Interactive (TTI), during which long tasks (over 50ms) prevent interactivity.
+ *  - A high TBT score indicates that the page is slow to respond to user interactions like clicks or taps, even if some visual content is loaded.
+ *  - TBT is important because it correlates with user experience, where a low TBT ensures a more interactive and responsive page.
+ *  - To reduce TBT, developers can optimize JavaScript execution by breaking up long tasks, reducing unused JavaScript, and deferring non-critical scripts.
+ *  - Tools like Web Vitals or Lighthouse help identify sources of high TBT by analyzing script execution times and offering optimization tips.
+ *  - Reducing TBT can have a significant impact on improving user engagement and reducing frustration on slower devices.
+ *
+ *  **4. 10 Very Advanced Things 99.99% of Developers Don’t Know**
+ *  1. **HTTP/3 Early Hints (103 Status Code):** Many developers are unaware of early hints (103 response code) that allow the browser to start fetching critical assets even before the final server response is fully prepared.
+ *  2. **Prefetching DNS Queries:** Few developers implement DNS prefetching to optimize domain resolution times before a user clicks on a link or navigates to a new page.
+ *  3. **Request Prioritization in Browsers:** Browsers prioritize resource loading (images, scripts) in ways that developers don’t fully understand. For example, browsers give higher priority to resources needed for rendering the viewport.
+ *  4. **Service Worker Caching Strategies:** Many developers don't fully leverage service workers to implement advanced caching strategies, like stale-while-revalidate or cache-first, for network optimization.
+ *  5. **JS Parsing Time Impact:** Developers often focus on minimizing file sizes but overlook JavaScript parsing and execution time, which can have a bigger impact on TBT and interactivity.
+ *  6. **Critical Request Chains:** Many overlook how their site's critical request chains (the sequence of dependent network requests) impact performance. Reducing these can significantly lower load times.
+ *  7. **Render-Blocking Third-Party Scripts:** Even a single third-party script, such as an ad tracker, can drastically slow down page load times. Techniques like async and defer are underutilized.
+ *  8. **Font-Display: Swap CSS Rule:** Many developers don’t know that this rule can prevent invisible text issues (FOIT) by rendering text with fallback fonts until the custom font is fully loaded.
+ *  9. **Lazy Loading of JavaScript Modules:** Advanced techniques such as module-level code-splitting in React or Vue allow developers to load specific parts of the app only when required.
+ *  10. **WebAssembly (WASM) for Performance:** Although WebAssembly can dramatically improve performance, especially for computational tasks, many developers aren’t using it or don’t know when it’s appropriate to introduce it.
+ */
