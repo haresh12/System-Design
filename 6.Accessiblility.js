@@ -447,4 +447,578 @@
 
   
 
+                                       /** FOCUS MANAGEMENT */
 
+
+  /**
+ *   **FOCUS MANAGEMENT in Terms of Accessibility (5 In-Depth Questions)**
+ * 
+ *   1. **What is Focus Management and Why is it Critical for Accessibility?**
+ *      - Focus management refers to the practice of controlling which elements on a web page can receive keyboard focus, allowing users to interact with them.
+ *      - It is critical because users with disabilities, particularly those who rely on screen readers or keyboard navigation, use focus to interact with websites.
+ *      - Without proper focus management, users may struggle to navigate, missing essential interactive elements like buttons, links, or forms, which negatively impacts accessibility.
+ *      - Focus management also helps prevent issues such as focus trapping, where users get stuck within an element or modal without being able to navigate out.
+
+ *   2. **How Do Focusable Elements Affect Accessibility?**
+ *      - Focusable elements include buttons, links, form inputs, and any element with a `tabindex` attribute. These elements should be arranged logically for smooth keyboard navigation.
+ *      - A lack of focusable elements or improper focus order can create confusion for users, making it difficult for them to navigate through the content.
+ *      - An example of poor focus management would be skipping important form fields when navigating with the keyboard, or focusing on hidden or disabled elements.
+ *      - Developers must ensure that all interactive elements can be accessed and navigated through a keyboard, ensuring inclusivity for users with motor impairments.
+
+ *   3. **What is `tabindex`, and How Should it be Used for Effective Focus Management?**
+ *      - The `tabindex` attribute controls the order in which elements receive focus when navigating via the keyboard (typically using the Tab key).
+ *      - A `tabindex` of `0` allows the element to be focusable in the natural document order, while a negative value (e.g., `tabindex="-1"`) makes it focusable programmatically but not through keyboard navigation.
+ *      - Misuse of `tabindex`, especially large positive values (e.g., `tabindex="1"`), can disrupt the logical focus flow, confusing users and making navigation difficult.
+ *      - Proper use of `tabindex` helps users navigate the content in a logical order, ensuring they don’t miss essential elements or encounter unexpected focus shifts.
+
+ *   4. **How Do Modals and Popups Impact Focus Management, and What Should Developers Do to Handle This Correctly?**
+ *      - When a modal or popup appears, focus management must ensure that keyboard users can only interact with elements inside the modal, avoiding focus on underlying content (focus trapping).
+ *      - When a modal is closed, focus should return to the element that triggered the modal, maintaining the user's place in the focus order.
+ *      - Failing to manage focus within modals can result in users navigating to elements outside the modal, breaking the flow and leading to confusion.
+ *      - Developers should use techniques like `focus` trapping (e.g., keeping the focus within the modal) and returning focus to the triggering element to ensure smooth interaction.
+
+ *   5. **What is Focus Visible, and Why is It Important for Accessibility?**
+ *      - `:focus-visible` is a CSS pseudo-class that applies styles to an element when it has focus and is being interacted with via keyboard or assistive technology.
+ *      - Providing a clear and visible focus indicator (often a focus ring or outline) helps users easily identify which element is currently active when navigating with the keyboard.
+ *      - Some developers mistakenly remove focus styles for aesthetic reasons, which can severely hinder accessibility for keyboard users.
+ *      - A good practice is to maintain a strong focus outline that visually highlights active elements, ensuring users can easily follow their position as they tab through content.
+ */
+                                     
+
+
+                            
+                                        /** COLOR CONTRAST */
+
+/**
+ *   **Color Contrast (In-Depth Understanding)**
+ * 
+ *   1. **What the Hell is Color Contrast? Why Should We Care About It and Why Does It Matter?**
+ *      - Color contrast refers to the difference in luminance or brightness between the foreground (text, elements) and the background.
+ *      - It matters because high contrast ensures that text and elements are legible and visible to users, especially those with visual impairments.
+ *      - Poor color contrast can make it difficult for users with low vision or color blindness to distinguish content, which affects accessibility and user experience.
+ *      - High contrast is especially crucial for accessibility compliance under WCAG (Web Content Accessibility Guidelines) to ensure inclusivity for all users.
+ * 
+ *   2. **Are There Some Standards That We Can Follow in Terms of Color Contrast?**
+ *      - Yes, the WCAG (Web Content Accessibility Guidelines) defines minimum color contrast ratios to ensure text and elements are accessible.
+ *      - For regular text, a contrast ratio of at least 4.5:1 is required, while for large text (14pt bold or 18pt regular), a minimum ratio of 3:1 is acceptable.
+ *      - There are three levels of accessibility: A, AA, and AAA. For the highest level (AAA), the contrast ratio for normal text is 7:1 and for large text, it's 4.5:1.
+ * 
+ *   3. **How Can We Check if Our Color Contrast is Good or Not? Is There a Score in Web Browsers We Can See?**
+ *      - Several tools can check color contrast, including browser extensions like "Accessibility Insights" or "axe" by Deque.
+ *      - The Chrome DevTools has a built-in color contrast checker in the "Lighthouse" or "Accessibility" tab that provides contrast scores.
+ *      - You can use online tools such as WebAIM’s Color Contrast Checker or contrast ratio calculators, which allow you to input colors and receive the contrast ratio.
+ * 
+ *   4. **What is This 400% Zoom? How is it Helpful and How Can We Achieve This?**
+ *      - 400% zoom refers to the requirement in WCAG 2.1 that websites must be usable when zoomed up to 400% without losing functionality or readability.
+ *      - It helps users with low vision by allowing them to zoom into content and still be able to interact with all elements effectively.
+ *      - Developers can achieve this by ensuring their websites are responsive, using relative units like `em` or `rem` for font sizes, and avoiding fixed layouts.
+ * 
+ *   5. **What is the Best Ratio for Color Contrast?**
+ *      - The best ratio for color contrast depends on the type of text. 
+ *      - For normal body text, aim for at least 4.5:1 (AA compliance) or 7:1 for AAA compliance.
+ *      - For large text (14pt bold or 18pt normal), aim for at least 3:1 (AA compliance) or 4.5:1 (AAA compliance).
+ *      - These ratios ensure that content is readable for users with visual impairments or color blindness.
+ * 
+ *   6. **How Do `em`, `prefers-color-scheme`, and Media Queries Help in Color Contrast and Fonts?**
+ *      - `em` is a relative unit that scales font size based on the parent element's font size, ensuring flexibility when zooming or resizing.
+ *      - `prefers-color-scheme` is a media query that allows websites to adapt to the user’s system theme (light or dark mode), providing better contrast for different environments.
+ *      - Media queries like `prefers-reduced-motion` or `prefers-contrast` can help adjust the interface based on user preferences, improving accessibility for users who need higher contrast or specific styles.
+ * 
+ *   7. **Ten Advanced Things That 99% of Developers Don’t Know About This Topic?**
+ *      - 1. Some screen readers do not announce content that has poor color contrast, leading to usability issues.
+ *      - 2. Color blindness affects 1 in 12 men and 1 in 200 women, making color contrast critical for inclusivity.
+ *      - 3. Using text shadows can improve readability for text on complex backgrounds, but it needs careful consideration to avoid making text illegible.
+ *      - 4. The `CSS` `filter` property can be used to adjust brightness and contrast dynamically.
+ *      - 5. Some fonts themselves have built-in contrast issues; not all typefaces are accessible even at high color contrast.
+ *      - 6. Custom color contrast settings: users with low vision may have custom contrast requirements that override default website styles.
+ *      - 7. Different color contrasts may behave differently under different lighting conditions (e.g., dark mode, high light).
+ *      - 8. Tools like "Accessible Colors" provide auto-generated contrast-friendly color palettes based on input color.
+ *      - 9. Not all high-contrast color combinations are aesthetically pleasing; balance between accessibility and design is key.
+ *      - 10. ARIA roles or attributes may still require high contrast to be fully accessible when used in interactive elements.
+ */
+
+
+
+
+
+                                         /** TESTING ACCESIBLITY */
+
+/**
+ *   **Testing Accessibility (In-Depth Analysis)**
+ *   
+ *   **There are three key ways to test accessibility:** Automation Tools, Manual Testing, and Out-of-the-Box Testing.
+ *   Each method has its role in ensuring an inclusive experience for all users. Let’s break them down in depth.
+ * 
+ *   1. **Automation Tools**
+ *      Automation tools help developers catch accessibility issues during the development phase. These tools analyze code 
+ *      against known accessibility guidelines (such as WCAG) and highlight issues early.
+ * 
+ *      - **axe**: A powerful accessibility testing tool that scans web pages for compliance with accessibility guidelines. 
+ *      It integrates into developer tools, providing detailed issue reports and suggestions for fixes.
+ *        - *Why it’s important*: Developers can identify common issues such as missing ARIA labels, low color contrast, 
+ *        or improper focus management. This helps them catch issues early before manual testing.
+ * 
+ *      - **ESLint Accessibility Plugins**: Plugins like `eslint-plugin-jsx-a11y` work directly in your IDE or editor, 
+ *      warning you of potential accessibility problems during development.
+ *        - *Why it’s important*: It provides feedback as you write code, allowing for quick corrections of mistakes like 
+ *        missing ARIA roles or improper form labels.
+ * 
+ *      - **React-ARIA**: A React library that provides accessible components out of the box. React-ARIA helps developers 
+ *      create accessible custom components while handling ARIA attributes and keyboard interactions.
+ *        - *Why it’s important*: It simplifies building accessible UIs without needing to manually handle the intricacies 
+ *        of ARIA patterns or keyboard navigation.
+ * 
+ *   2. **Manual Testing**
+ *      Manual testing is essential to cover the real-world experience of users, especially in complex interactive elements 
+ *      where automation may fail.
+ * 
+ *      - **Lighthouse**: A Google tool integrated into Chrome Developer Tools. Lighthouse runs accessibility audits based 
+ *      on WCAG guidelines and generates a score for your site’s accessibility, offering tips for improvement.
+ *        - *Why it’s important*: Automated audits alone cannot catch every issue. Lighthouse helps identify problems in 
+ *        visual elements (like color contrast) and also checks for ARIA roles and semantic HTML structures.
+ * 
+ *      - **Keyboard Navigation Testing**: One of the most important manual testing methods is navigating your site using only 
+ *      the keyboard. Ensure that all focusable elements (links, buttons, forms) can be reached in a logical order.
+ *        - *Why it’s important*: Users who rely on screen readers or cannot use a mouse will navigate using only their keyboard.
+ *        If your site isn’t properly structured for keyboard access, it will cause significant issues for these users.
+ * 
+ *      - **Screen Reader Testing**: Testing with screen readers (like NVDA or VoiceOver) can give a true sense of how 
+ *      assistive technologies interact with your site. It allows you to hear the structure of your page and identify 
+ *      whether all elements are read properly.
+ *        - *Why it’s important*: Screen reader users rely heavily on semantic HTML and ARIA roles to navigate a page. Testing 
+ *        manually ensures that users are provided with a coherent experience.
+ * 
+ *   3. **Out-of-the-Box Testing (UI Libraries)**
+ *      Modern UI libraries such as Material UI and Fluent UI come with pre-built accessible components.
+ * 
+ *      - **Material UI**: A React component library that adheres to accessibility guidelines out of the box. It automatically 
+ *      handles keyboard interactions, ARIA attributes, and focus management for most of its components.
+ *        - *Why it’s important*: For teams that use Material UI, accessibility is mostly handled by default, ensuring that 
+ *        common UI components are fully accessible. This minimizes the manual effort for common elements like buttons, 
+ *        modals, and forms.
+ * 
+ *      - **Fluent UI**: Similar to Material UI, Fluent UI is a design framework built by Microsoft that focuses on accessibility 
+ *      and usability, ensuring WCAG compliance for all components.
+ *        - *Why it’s important*: Fluent UI provides an accessible baseline for building enterprise-level apps with accessible 
+ *        components like grids, buttons, and dropdowns.
+ * 
+ *      - **Out-of-the-Box Testing Caveats**: Even though these libraries handle a lot of accessibility issues, custom UI 
+ *      elements that fall outside of the standard components must still be tested manually. For example, a custom drag-and-drop 
+ *      feature or a dynamic chart might still require additional ARIA roles or attributes to be fully accessible.
+ * 
+ *   **Combining All Methods for Comprehensive Accessibility Testing**
+ *      - **Automation tools** can catch the low-hanging fruit by highlighting common accessibility problems.
+ *      - **Manual testing** ensures a real-world experience for users with disabilities, focusing on edge cases and 
+ *      interactions automation tools might miss.
+ *      - **UI Libraries** provide a strong foundation, but custom elements must still be tested both manually and with 
+ *      automation to ensure full compliance.
+ * 
+ *   **Key Takeaways**:
+ *      - Automated tools, while powerful, should never be the sole method of testing accessibility. Combining manual 
+ *      tests with automated tests provides the best results.
+ *      - UI libraries reduce the burden of accessibility but are not foolproof. Custom components must still be tested.
+ *      - Accessibility testing should be integrated throughout the development cycle, not treated as an afterthought. 
+ *        It’s about providing an inclusive experience to all users, regardless of ability.
+ */
+
+
+                                             /** React Aria And Eslint */
+
+ /**
+ *  **React-ARIA** (In-Depth)
+ * 
+ *  React-ARIA is a powerful library developed by Adobe that provides accessible components and utilities for React applications. 
+ *  It simplifies the process of building custom UI components that adhere to accessibility standards.
+ * 
+ *  - **What does React-ARIA do?**
+ *     React-ARIA helps developers add accessibility support to custom components by managing ARIA attributes, keyboard navigation, 
+ *     and other common patterns that improve accessibility. It abstracts away a lot of the complexities involved in making interactive 
+ *     components accessible.
+ * 
+ *  - **How does it help?**
+ *     - **Keyboard Navigation**: React-ARIA provides utilities that automatically handle keyboard interaction for components like buttons, 
+ *     sliders, and dropdowns, ensuring users who cannot use a mouse can still interact with the application.
+ *     - **ARIA Attributes**: The library manages ARIA roles and states for your components, ensuring they comply with WCAG standards 
+ *     without needing to manually add attributes. For example, it handles complex roles like `aria-expanded`, `aria-pressed`, and `aria-hidden`.
+ *     - **Focus Management**: React-ARIA helps manage focus in scenarios like modals or popovers, ensuring that focus is always correctly 
+ *     managed, and users can exit or enter focusable areas without issues.
+ *     - **Accessibility APIs**: The library abstracts native browser accessibility APIs, helping you implement complex ARIA behaviors 
+ *     without deep knowledge of ARIA specifications.
+ * 
+ *  - **When should you use React-ARIA?**
+ *     Use React-ARIA when:
+ *     - You are building complex UI components like custom buttons, dropdowns, sliders, or dialogs that require proper keyboard and screen reader support.
+ *     - You need to ensure a high level of accessibility in your React applications but want to avoid manually handling ARIA attributes and focus management.
+ * 
+ *  - **Example of React-ARIA**:
+ *  ```jsx
+ *  import { useButton } from '@react-aria/button';
+ *  import { useRef } from 'react';
+ *  
+ *  function MyButton(props) {
+ *    let ref = useRef();
+ *    let { buttonProps } = useButton(props, ref);
+ *  
+ *    return (
+ *      <button {...buttonProps} ref={ref}>
+ *        {props.children}
+ *      </button>
+ *    );
+ *  }
+ *  ```
+ *  In this example, `useButton` from React-ARIA automatically handles the necessary ARIA attributes and keyboard interaction for the button.
+ * 
+ *  **Advantages**:
+ *  - React-ARIA simplifies building accessible components and removes the need for deep ARIA knowledge.
+ *  - It supports more complex patterns (like handling focus trapping and keyboard shortcuts) out-of-the-box, which would otherwise 
+ *    require custom solutions.
+ * 
+ *  **Disadvantages**:
+ *  - Since React-ARIA focuses purely on accessibility utilities, it doesn’t provide pre-styled components. You'll need to handle 
+ *    the CSS separately, unlike libraries like Material UI that offer both style and accessibility.
+ * 
+ * 
+ *  **ESLint Accessibility Plugins (In-Depth)**
+ * 
+ *  **ESLint** is a popular JavaScript linting tool that helps you catch code issues while writing. The ESLint accessibility plugins, 
+ *  such as `eslint-plugin-jsx-a11y`, add accessibility-focused linting rules to your project.
+ * 
+ *  - **How does ESLint for accessibility help?**
+ *     - **Enforces accessibility rules**: ESLint accessibility plugins enforce accessibility best practices directly in your code. 
+ *     If you're writing JSX or HTML code, the plugin will catch violations of accessibility standards (like missing alt text on images).
+ *     - **Real-time feedback**: You’ll get feedback as you code, helping you catch accessibility issues early in development before 
+ *     the project is tested or goes live.
+ *     - **Customization**: You can configure rules based on your project's accessibility goals. For example, you can enforce higher 
+ *     standards like WCAG AA compliance and get warnings or errors when you violate rules.
+ * 
+ *  - **Common Rules in `eslint-plugin-jsx-a11y`**:
+ *     - **alt-text**: Ensures that every image has an `alt` attribute for screen readers.
+ *     - **anchor-is-valid**: Ensures that all anchor tags (`<a>`) have valid `href` attributes, preventing them from being misused.
+ *     - **aria-props**: Ensures that ARIA attributes are valid, catching typos or improper usage of ARIA properties.
+ *     - **label-has-associated-control**: Ensures that form inputs have associated labels, which is critical for screen readers.
+ * 
+ *  - **Example of ESLint Accessibility Plugin in Action**:
+ *  Consider the following invalid JSX code:
+ *  ```jsx
+ *  <img src="logo.png" />
+ *  ```
+ *  Without an `alt` attribute, screen readers won’t be able to describe the image. The `eslint-plugin-jsx-a11y` plugin would raise 
+ *  an error or warning, prompting you to fix it like so:
+ *  ```jsx
+ *  <img src="logo.png" alt="Company Logo" />
+ *  ```
+ * 
+ *  - **When to use ESLint Accessibility Plugins?**
+ *     - These plugins are useful in every project, particularly during development, to ensure accessibility issues are addressed early.
+ *     - They are essential for React projects where accessibility can be easily overlooked, and small errors like missing ARIA 
+ *     attributes can cause major usability issues for assistive technology users.
+ * 
+ *  - **Benefits of ESLint Accessibility Plugins**:
+ *     - Catch common accessibility issues before they even reach manual testing.
+ *     - Provide real-time feedback during the development process, reducing the chances of missing accessibility violations.
+ *     - Enforce best practices automatically across teams, ensuring consistent accessibility standards.
+ * 
+ *  - **Disadvantages**:
+ *     - ESLint can only catch static analysis issues, like missing ARIA attributes or improper use of HTML elements. 
+ *     It cannot verify dynamic behavior such as whether the focus order is logical or if custom components are accessible to screen readers.
+ * 
+ * 
+ *  **Conclusion**:
+ *     - **React-ARIA** makes developing accessible custom components much easier by providing built-in ARIA support, 
+ *     focus management, and keyboard interaction.
+ *     - **ESLint Accessibility Plugins** provide real-time, automated feedback on accessibility issues, allowing developers to 
+ *     address these problems as they write code.
+ */
+                                            
+
+
+
+ /**
+ *  **15 Essential Accessibility Practices (with Examples)**
+ *
+ *  1. **Use HTML Semantics**:
+ *     - Semantic HTML elements like `<header>`, `<nav>`, `<main>`, and `<footer>` help assistive technologies understand the structure of the page.
+ *     - Example:
+ *     ```html
+ *     <main>
+ *        <article>
+ *           <header>Article Title</header>
+ *           <p>Article content goes here.</p>
+ *        </article>
+ *     </main>
+ *     ```
+ *
+ *  2. **Add Labels to Form Elements**:
+ *     - Every form input should have an associated `<label>` for screen readers.
+ *     - Example:
+ *     ```html
+ *     <label for="username">Username</label>
+ *     <input type="text" id="username" name="username">
+ *     ```
+ *
+ *  3. **Provide Alt Text for Images**:
+ *     - All images should have descriptive `alt` attributes for users who rely on screen readers.
+ *     - Example:
+ *     ```html
+ *     <img src="logo.png" alt="Company Logo">
+ *     ```
+ *
+ *  4. **Ensure Sufficient Color Contrast**:
+ *     - Text should have sufficient contrast against the background to ensure readability for users with visual impairments.
+ *     - Aim for a contrast ratio of at least 4.5:1 for body text.
+ *     - Example:
+ *     ```css
+ *     body {
+ *        color: #000;
+ *        background-color: #fff;
+ *     }
+ *     ```
+ *
+ *  5. **Keyboard Navigation**:
+ *     - Ensure that all interactive elements (buttons, links, form fields) are accessible via keyboard, not just a mouse.
+ *     - Example: Use `tabindex` to control the tab order.
+ *     ```html
+ *     <button tabindex="1">Submit</button>
+ *     <a href="#" tabindex="2">Link</a>
+ *     ```
+ *
+ *  6. **Focus Management**:
+ *     - Manage focus correctly, especially for popups, modals, and other dynamic content, so users can navigate easily.
+ *     - Example:
+ *     ```javascript
+ *     document.getElementById("modal").focus();
+ *     ```
+ *
+ *  7. **ARIA Roles and Attributes**:
+ *     - Use ARIA attributes like `aria-label`, `aria-hidden`, and `aria-live` for dynamic content and complex interactions.
+ *     - Example:
+ *     ```html
+ *     <button aria-expanded="false" aria-controls="menu">Menu</button>
+ *     ```
+ *
+ *  8. **Use Headings Correctly**:
+ *     - Ensure a logical heading structure (e.g., using `<h1>`, `<h2>`, etc.) to help screen readers navigate content hierarchies.
+ *     - Example:
+ *     ```html
+ *     <h1>Main Title</h1>
+ *     <h2>Subheading</h2>
+ *     <h3>Sub-subheading</h3>
+ *     ```
+ *
+ *  9. **Responsive Design**:
+ *     - Ensure the site is accessible and usable across a variety of devices, including desktops, tablets, and mobile phones.
+ *     - Example: Use media queries to adjust the layout for different screen sizes.
+ *     ```css
+ *     @media screen and (max-width: 768px) {
+ *       body {
+ *         font-size: 18px;
+ *       }
+ *     }
+ *     ```
+ *
+ *  10. **Accessible Links**:
+ *     - Ensure that links are descriptive and provide context. Avoid links that just say "click here."
+ *     - Example:
+ *     ```html
+ *     <a href="/about">Learn more about our company</a>
+ *     ```
+ *
+ *  11. **Avoid Auto-Playing Media**:
+ *     - Auto-playing audio or video can be disruptive to users, especially those using screen readers. Provide controls to pause or stop the media.
+ *     - Example:
+ *     ```html
+ *     <video controls>
+ *       <source src="video.mp4" type="video/mp4">
+ *     </video>
+ *     ```
+ *
+ *  12. **Error Messaging for Forms**:
+ *     - Provide clear, accessible error messages when form validation fails. Use ARIA attributes to announce errors to screen readers.
+ *     - Example:
+ *     ```html
+ *     <span id="error" aria-live="assertive">Please enter a valid email.</span>
+ *     <input type="email" aria-describedby="error">
+ *     ```
+ *
+ *  13. **Avoid Using `div` or `span` for Interactive Elements**:
+ *     - Avoid making `div` or `span` elements behave like buttons or links without adding proper roles and keyboard interaction.
+ *     - Example (instead of `div`):
+ *     ```html
+ *     <button>Click Me</button>
+ *     ```
+ *
+ *  14. **Avoid Time-Sensitive Content**:
+ *     - Content that disappears after a short time can be problematic for users who may take longer to read or interact with it.
+ *     - If time-sensitive content is necessary, provide a mechanism to extend or remove the time limit.
+ *     - Example:
+ *     ```html
+ *     <p>This message will disappear in 5 seconds.</p>
+ *     ```
+ *
+ *  15. **Use Landmarks for Navigation**:
+ *     - Use `<nav>`, `<header>`, `<footer>`, and `<main>` elements to define landmark regions of your site, making it easier for assistive technology users to navigate.
+ *     - Example:
+ *     ```html
+ *     <nav>
+ *        <ul>
+ *           <li><a href="#home">Home</a></li>
+ *           <li><a href="#about">About</a></li>
+ *        </ul>
+ *     </nav>
+ *     ```
+ */
+
+
+ 
+
+
+
+
+
+
+
+//  /**
+//  *  **Additional Accessibility Considerations (In-Depth)**
+//  *
+//  *  1. **Skip to Content Links**:
+//  *     - Provide a "Skip to Content" link at the top of pages for keyboard users to bypass navigation links and jump straight to the main content.
+//  *     - This helps users who rely on keyboard navigation to access content quickly without having to tab through all navigation links.
+//  *     - Example:
+//  *     ```html
+//  *     <a href="#main-content" class="skip-link">Skip to Main Content</a>
+//  *     <main id="main-content">Main content goes here...</main>
+//  *     ```
+//  *
+//  *  2. **Accessible Tables**:
+//  *     - Ensure tables are accessible by using `<thead>`, `<tbody>`, and proper `<th>` elements for column and row headers.
+//  *     - This structure provides clear labeling and improves navigation for screen readers.
+//  *     - Example:
+//  *     ```html
+//  *     <table>
+//  *       <thead>
+//  *         <tr><th>Name</th><th>Age</th></tr>
+//  *       </thead>
+//  *       <tbody>
+//  *         <tr><td>John</td><td>30</td></tr>
+//  *         <tr><td>Jane</td><td>25</td></tr>
+//  *       </tbody>
+//  *     </table>
+//  *     ```
+//  *
+//  *  3. **Accessible Forms with Fieldsets and Legends**:
+//  *     - Use `<fieldset>` and `<legend>` to group related form controls and provide a label for the entire group.
+//  *     - This is especially useful for radio buttons and checkboxes, providing context to the screen readers.
+//  *     - Example:
+//  *     ```html
+//  *     <fieldset>
+//  *       <legend>Select your preferred contact method:</legend>
+//  *       <input type="radio" id="email" name="contact" value="email">
+//  *       <label for="email">Email</label>
+//  *       <input type="radio" id="phone" name="contact" value="phone">
+//  *       <label for="phone">Phone</label>
+//  *     </fieldset>
+//  *     ```
+//  *
+//  *  4. **Accessible Modal Dialogs**:
+//  *     - Ensure modal dialogs are accessible by trapping focus within the modal and making it dismissible by the `Esc` key.
+//  *     - Users using keyboard navigation or screen readers should be able to interact with modals without confusion.
+//  *     - Example (JavaScript focus trapping):
+//  *     ```javascript
+//  *     const modal = document.getElementById('modal');
+//  *     modal.addEventListener('keydown', (e) => {
+//  *       if (e.key === 'Escape') {
+//  *         modal.close();
+//  *       }
+//  *     });
+//  *     ```
+//  *
+//  *  5. **Text Resizing and Responsive Typography**:
+//  *     - Ensure that text is easily resizable by users, especially those with visual impairments, without breaking the layout.
+//  *     - Use relative units like `em` or `rem` instead of fixed `px` for font sizes to ensure responsiveness.
+//  *     - Example:
+//  *     ```css
+//  *     body {
+//  *       font-size: 1rem; /* Relative to the root element's font size */
+//  *     }
+//  *     ```
+//  *
+//  *  6. **Accessible SVGs and Icons**:
+//  *     - Ensure that SVGs and icons are accessible by using `aria-label`, `role="img"`, or providing `title` elements inside SVGs.
+//  *     - This ensures that non-text content is properly described for screen readers.
+//  *     - Example:
+//  *     ```html
+//  *     <svg role="img" aria-label="Search Icon">
+//  *       <title>Search Icon</title>
+//  *       <use xlink:href="#icon-search"></use>
+//  *     </svg>
+//  *     ```
+//  *
+//  *  7. **Avoid Flashing Content**:
+//  *     - Flashing content can trigger seizures in individuals with photosensitive epilepsy.
+//  *     - If flashing content is necessary, ensure it complies with the WCAG guidelines (no more than three flashes per second).
+//  *     - Example: Avoid using animations or auto-play video that flashes quickly.
+//  *
+//  *  8. **Support for Custom Themes and High Contrast Mode**:
+//  *     - Ensure your site works with custom themes or system-wide high contrast modes that users with visual impairments often enable.
+//  *     - CSS example for high contrast mode support:
+//  *     ```css
+//  *     @media (prefers-contrast: high) {
+//  *       body {
+//  *         background-color: #000;
+//  *         color: #fff;
+//  *       }
+//  *     }
+//  *     ```
+//  *
+//  *  9. **Accessible Error Recovery**:
+//  *     - Help users recover from input errors. Clearly state what went wrong and how they can fix it.
+//  *     - Screen readers should announce errors as they occur, so users are aware of issues right away.
+//  *     - Example:
+//  *     ```html
+//  *     <input type="email" aria-invalid="true" aria-describedby="error-message">
+//  *     <span id="error-message" role="alert">Please enter a valid email address.</span>
+//  *     ```
+//  *
+//  *  10. **Test with Real Users with Disabilities**:
+//  *     - Automated tools are helpful but do not catch everything.
+//  *     - Ensure that you test your site with real users who have disabilities to identify any remaining accessibility issues.
+//  *     - This helps you understand practical challenges that may not be visible through automated tests.
+//  *
+//  *  11. **Meaningful Link Text**:
+//  *     - Links should be descriptive and clearly indicate their purpose, rather than using vague terms like "click here."
+//  *     - Example:
+//  *     ```html
+//  *     <a href="/pricing">See our pricing plans</a>
+//  *     ```
+//  *
+//  *  12. **Ensure Focus is Visible**:
+//  *     - It's important that users can see where the focus is when navigating the page via the keyboard.
+//  *     - Always provide a clear focus style using `:focus` pseudo-class in CSS.
+//  *     - Example:
+//  *     ```css
+//  *     a:focus, button:focus {
+//  *       outline: 2px solid #000; /* Clearly visible focus */
+//  *     }
+//  *     ```
+//  *
+//  *  13. **Provide Meaningful Alt Text for Images**:
+//  *     - Provide descriptive `alt` text for images, especially important images that convey information.
+//  *     - Avoid redundant `alt` text like "image of..." and instead describe the purpose or content of the image.
+//  *     - Example:
+//  *     ```html
+//  *     <img src="team-photo.jpg" alt="Our company team photo during a summer retreat">
+//  *     ```
+//  *
+//  *  14. **Keyboard Navigation for All Interactive Elements**:
+//  *     - All interactive elements (buttons, links, inputs) should be navigable and operable via the keyboard.
+//  *     - Ensure you test keyboard navigation thoroughly, and avoid elements that can only be activated by mouse.
+//  *
+//  *  15. **Accessible Timed Content**:
+//  *     - Provide options to pause, stop, or extend time-limited content. This includes automatic sliders, popups, or notifications.
+//  *     - Users with cognitive disabilities may struggle with content that moves or changes automatically.
+//  *     - Example:
+//  *     ```javascript
+//  *     const slider = document.querySelector('.slider');
+//  *     slider.pause(); // Allow users to pause slideshows
+//  *     ```
+//  */
