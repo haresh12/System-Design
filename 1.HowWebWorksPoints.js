@@ -1162,3 +1162,62 @@
  * By grasping these concepts, you'll be well-equipped to use gRPC in your frontend projects where appropriate.
  *
  */
+
+
+
+
+
+
+/**
+ *             REVISION POINTS ONLY WORDS
+ * 
+ *  DNS 
+ *  TOP LEVEL DOMAIN
+ *  SUB DOMAIN
+ *  DOMAIN 
+ *  PATH 
+ *  FRAGEMNENT
+ *  ISP 
+ *  PEERING AND SHARED HOSTING
+ *  HANDSHAKE
+ *  TCP , UDP (QUIC) , HTTP , HTTPS . TLS , FTP , WEBSOCKET, SSL
+ *  LOADING , SCRIPTING , RENDERING , LAYOUTING 
+ *  RENDER BLOCKING
+ *  PARSER BLOCKING 
+ *  DOM 
+ *  CSSOM 
+ *  RENDER TREE
+ *  ASYC AND DEFER TREE
+ *  REST 
+ *  GET , POST , PUT , PATCH , DELETE, CONNECT , OPTIONS . TRACE , HEAD
+ *  HEADERS , REQUEST AND RESPONSE HEADERS
+ *  1-TIRE , 2-TIRE , 3-TIRE ARCITECUTRE 
+ *  STATE CODE 
+ *  1XX => INTERMATION
+ *  2XX => SUCCESS
+ *  3XX => REDIRECTION
+ *  4XX => CLIENT SIDE ERROR
+ *  5XX => SERVER SIDE ERROR
+ * 
+ *  GRAPHQAL
+ *  SDL (SCHEMA DEFINATION LANGUAGE)
+ *  quary
+ *  Mutation
+ *  Resolver
+ *  typ defination
+ *  everything is post
+ *  fetch used , copy as fetch in brower
+ *  appolo , urql
+ *  express , appollo server
+ *  subscriptions 
+ *  useQuery , useMutation , client side caching 
+ * 
+ *  grpc 
+ *  rpc (Remote processduer call) (Open source)
+ *  idl (interface description language)
+ *  proto , protobuf file , .proto (human readable interface)
+ *  call any server function from client side that the main goal of grpc
+ *  Client Function => Client stub => RPC RUNTIME SAME ALL FOR SERVER
+ *  http2 only
+ *  transer binary data 
+ */
