@@ -896,4 +896,55 @@
  */
 
 
+
+
+/**
+ *  REVISION
+ * 
+ *   SHORT POLLING 
+ *   CLEAR INTERVAL ALWAYS
+ *   LESS RESOURCE UTILZATION
+ * 
+ *   LONG POLLING 
+ *   BEST THING I LEARED THAT YOU CAN HOLD THE REQUEST
+ *   REAL HARD WHEN WE HAVE MILLIONS OF USER MEANS MILLIONS OF 
+ *   OPEN CONNECTION
+ *   EASIEST WAY TO ACHIEVE JUST IN SERVER DON'T DO res.send()
+ *   or res.json() MEANS YOU ARE NEVER COMPLITING REQUEST.
+ *   SEE YOU ARE NOT CONNECTING ONCE ONLY ITS LIKE EK REQUEST
+ *   KHTM TO DUSRI BEJDO
+ * 
+ *   WEBSOCKET
+ *   101 UPGRADE SWICHING PROTOCOL 
+ *   BIDIRECTIONAL 
+ *   SOCKET.IO
+ *   EMIT ON , connect disconnect SEE ALL THESE EVENTS THAT WE NEED TO PLAY WITH
+ *   ws and wss two other best libries
+ *   wss is like web socket secure
+ * 
+ *  SSE : Server side event
+ * 
+ *  best think in this module and simplest 
+ * 
+ *  in server add few headers like text/event-stream
+ *  connection-type keep-alive and then write as much 
+ *  as data you want
+ *  res.write() // exmple every 5 sec write something
+ *  clear interal if you are using it MUST
+ *  how to get those events in client now simple use
+ *  new EventSource('/endpoint');
+ *  eventsource.onMessege()
+ *  event me data kya kya milega event | data | id
+ *  
+ * 
+ *  Webhook
+ *  Just one post api 
+ *  used many many times have clear idea
+ *  x and y system are connected and on
+ *  certien event y sytem wanted to give acknoldgement
+ *  of something at that time x will give end-point 
+ *  and tell that once you are done please call this 
+ *  end-point 
+ *  
+ */
                                          
