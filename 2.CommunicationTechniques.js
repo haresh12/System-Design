@@ -945,6 +945,10 @@
  *  of something at that time x will give end-point 
  *  and tell that once you are done please call this 
  *  end-point 
+ * 
+ *  In webhook think it like as api we have used in real
+ *  time for payment getway razopay and another one which
+ *  used most is github hook"
  *  
  */
                                          
