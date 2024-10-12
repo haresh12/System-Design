@@ -1523,3 +1523,72 @@
  *  9. **Lazy Loading of JavaScript Modules:** Advanced techniques such as module-level code-splitting in React or Vue allow developers to load specific parts of the app only when required.
  *  10. **WebAssembly (WASM) for Performance:** Although WebAssembly can dramatically improve performance, especially for computational tasks, many developers aren’t using it or don’t know when it’s appropriate to introduce it.
  */
+
+
+
+ // REVISION WORDS
+/**
+ *   PERFROMANCE TAB
+ *   LIGHTHOUSE 
+ *   PAGEINDEX.WEB.DEV
+ *   WEBPAGETEST.ORG
+ *   NEWRELC
+ *   SYNTRY
+ *   MS CLEARTY (BEST)
+ * 
+ *  THREE TYPES OF OPTIMAIZATION THAT WE MUST ALWAYS ALWAYS FOUCS
+ *  
+ *     NETWORK LEVEL OPTIMIZATION
+ *     BUILD LEVEL OPTIMAZATION
+ *     RENDERING OPTIMAIZATION 
+ * 
+ * 
+ *  NETWORK LEVEL OPTIMAZION
+ * 
+ *    AVOID REDIRECTION
+ *    1 BIG REQUEST IS BETTER THEN 5 SMALL REQUEST (KEEP ROUND TRIPS IN MIND)
+ *    ASYN AND DEFER
+ *    HSTS PRELOAD
+ *    RESOURCE HINTING
+ *         PRECONNECT
+ *         DNS PREFETCH
+ *         PRELOAD
+ *         PRERENDER
+ *         FETCH PRIOORITY https://learn-performance-resource-hints.glitch.me/
+ * 
+ *    HTTP UPGRADED : 1.1 2 3 WHEN TO USE WHAT
+ *    HPACK AND QPACK 
+ *    GZIP , BROTLY DEFELET ZSTND (FACEBOOK) COMPRESSION
+ *    SERVICE WORKERS HTTP CACHING USE ALL THIS
+ * 
+ * RENDERING OPTIMIZATION
+ * 
+ *  CSR (CLIENT SIDE RENDERING)
+ *  SSR (SERVER SIDE RENDERING)
+ *  SSG  (STATIC SITE GENEREATION)
+ *  REACT SERVER COMPONENT 
+ *  getServersiderendering
+ *  getStaticSiteRendering  (Now after app router we really don't user this because everthing is server render by default)
+ *  use client 
+ *  user server (this directive can be used as function level also)
+ *  No matter is csr or ssr in both case dehidraction happes at brower side only means client side because server don't have events listners
+ * 
+ * 
+ * BUILD TIME OTPIMAZATION
+ * 
+ *  HERE MAKE SURE WHICH BUNDLER YOU ARE USING 
+ * 
+ *   WEBPACK
+ *   ROLL-UP
+ *   VITE
+ *   PARCEL
+ *   ESBUILD (THIS ONE IS LIT REALLY WRITTEN IN GO)
+ * 
+ *  CODE SPITTING
+ *  TREE SHECKING
+ *  MINIFICATION
+ * CODE OBFUCATION
+ *  BROWER-COMPETIBILITY
+ *  HOT MODULE RELOADING
+ *  CHUNKING
+ */
