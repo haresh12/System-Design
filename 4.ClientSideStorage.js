@@ -2109,3 +2109,123 @@ Foreign Fetch: Service workers can intercept and handle requests made from exter
  *  * 1. **State Normalization**: Developers often overlook the importance of normalizing state, which can prevent 
  *    unnecessary re-renders and make state easier to manage, especially with nested data structures.
  */
+
+
+
+
+ /**
+  *   REVISION POINTS 
+  * 
+  *   Local storage
+  *   5mb
+  *   setItem , getItem , removeItem , clear
+  *   SYNC
+  *   Data will be always string 
+  *   Json.Stringfly() and Json.Parse()
+  *   Never store tokens or sensitive data
+  *   Best usecase light dark mode preference
+  *   Data will be there until you don't clear manually
+  *   Clear site data (THIS IS LIT HEADER TO CLEAR ALL TYPE OF STORAGE SET IN BACKEND)
+  * 
+  * 
+  *  Sesstion Stoage
+  *   5mb
+  *   setItem , getItem , removeItem , clear
+  *   SYNC
+  *   Data will be always string 
+  *   Json.Stringfly() and Json.Parse()
+  *   Never store tokens or sensitive data
+  *   Data will be there until you close the perticuler tab
+  *   Intersting thing is when you duplicate the tab at that time inital state get copied
+  *   We can also clear data with Clear Site Data
+  *   Used is some kind of that which is importent until tab is open (Even after reload data will be there)
+  * 
+  * 
+  *  Cookies (LIT)
+  *  session cookies
+  *  SYNC
+  *  Persistance cookies all you have to do is add expire thats it
+  *  document.cookies + 'expeires;
+  *  Colon sperated
+  *  BOTH SERVER AND CLIENT CAN WRITE DATA IN COOKIES
+  *  Server can always read data but based on condition client may or may not able to read data
+  *  4kb 
+  *  Make sure this data always travel with your https request so 4kb load with every request
+  *  http only
+  *  same origin
+  *  secure
+  *  domain / path must be set so that other domain can not read cookies
+  *  Mainly used for auth token
+  * 
+  * 
+  * INDEXDB
+  *   
+  *  For large storage
+  *  > 100 mb of data can be store
+  *    whats app web is best exmple
+  *    quite complex so mainly we use dexy other third party libraries
+  *    Its like SQL quries connection open close indexes and all
+  *    ASYC
+  *    
+  *   
+  *  HTTP CACHING
+  * 
+  *     cache-control
+  *     expires 
+  *     last-modified (by default set by atleast express server)
+  *     etag (its like hash compare with server if both same good else server will send data)
+  * 
+  *    Priority : cache-control (p0) , expires (p1) , last modified and etag (p2)
+  * 
+  *   must revalidate in case of cache-control
+  *  
+  * 
+  * API Caching 
+  * 
+  *   React Query  (LIT)
+  *   Apollo client
+  *   SWR 
+  * 
+  *   Mostly 5 caching policy that are use in most of this
+  * 
+  *     cache-first
+  *     cache-last
+  *     cache-and-network
+  *     no-cache   (Don't do any caching)
+  *     network-only (DO CACHING BUT DON'T USE IT MAY BE WE USE IN CASE OF OFFLINE MODE)
+  * 
+  * 
+  *  STATE MANAGEMENT
+  * 
+  *   Redux
+  * 
+  * 
+  *  Service Workers
+  * 
+  *    Registration
+  *    Proxy sever
+  *    Intercept all the request
+  *    navigater to check if browser support service worker or not
+  *    registraction
+  *    install
+  *    installing
+  *    activating
+  *    activation
+  *    waitUntil
+  *   
+  *    Registerd 
+  *    Installed
+  *    activated
+  *    fetch 
+  *    
+  *   in fetch you can intercept every request and do whatever logic you wanted to write
+  * 
+  *   mostly used in offline support
+  *   PWA
+  *   Make sure does not have access of dom and used in same orgin // MUCH BETTER THE WEBWORKER
+  * 
+  *   self
+  *   
+  *    
+  */
+
