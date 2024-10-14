@@ -2224,7 +2224,7 @@ Foreign Fetch: Service workers can intercept and handle requests made from exter
   *   PWA
   *   Make sure does not have access of dom and used in same orgin // MUCH BETTER THE WEBWORKER
   * 
-  *   self
+  *   self is the keyword that is used for accessing all the life cycle method
   *   
   *    
   */
