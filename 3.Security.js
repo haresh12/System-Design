@@ -5500,3 +5500,27 @@
                                                      
 
           /** THATS ALL ABOUT SECURITY */
+
+
+/**
+ * Revision
+ * 
+ *  XSS 
+ *  INPUT VALIDATION
+ *  URL PARAMS
+ *  SCAPING
+ *  <img onError is really culprite
+ *  Content security header -: (CSP)
+ *  Allow Script , default src script src all this we can set even for font and images
+ *  script nonse
+ *  Report-to
+ *  Report-uri (old one)
+ *  Use library like react
+ *  Dom purify
+ *  Depedency injection
+ *  Senitization for inputs
+ *  Never use innerHtml
+ *  Never use eval
+ *  Cover all the points with edge case mainly from where user is able to add the data (like url params , forms , input)
+ *  
+ */          
