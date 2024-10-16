@@ -5523,4 +5523,17 @@
  *  Never use eval
  *  Cover all the points with edge case mainly from where user is able to add the data (like url params , forms , input)
  *  
- */          
+ *  ADDITIONAL SECURITY POINTS:
+ *  
+ *  1. Use HTTPS to encrypt all data transmitted between the client and the server.
+ *  2. Implement secure cookies with the "HttpOnly" and "Secure" flags to prevent XSS attacks.
+ *  3. Validate and sanitize data both on the client-side and server-side to ensure consistent protection.
+ *  4. Limit the size and type of files that can be uploaded to prevent malicious file uploads.
+ *  5. Use SameSite cookie attribute to prevent cross-site request forgery (CSRF).
+ *  6. Ensure proper authentication and authorization mechanisms are in place for APIs.
+ *  7. Rotate and secure API keys and tokens to avoid exposure and misuse.
+ *  8. Use strong password policies and enforce multi-factor authentication (MFA).
+ *  9. Regularly update and patch libraries, frameworks, and dependencies to fix known vulnerabilities.
+ *  10. Monitor and log suspicious activities to detect and respond to potential security breaches.
+ */
+        
