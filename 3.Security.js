@@ -5536,4 +5536,96 @@
  *  9. Regularly update and patch libraries, frameworks, and dependencies to fix known vulnerabilities.
  *  10. Monitor and log suspicious activities to detect and respond to potential security breaches.
  */
+
+
+/**
+ *  Input senitization must
+ *  TRY TO THINK 10 TIMES FROM WHERE ALL USER CAN HAVE INPUT AND MAKE SURE YOU VALIDATE ALL OF THEM
+ *  Escaping
+ *  <img onError make sure user is not able to put any script or something in this
+ *  URL PARAMS PARAS IT DO TYPE CHECKING ALSO ESCAPTING ALSO 
+ *  Don't thinks inputs are the only way use can enter data Params are the another one and worst one even
+ *  CSP headrs like all script , nones and report only this must be properly set from server
+ * 
+ *  Iframe make sure you have proper directives set what your child i frame can do and what not
+ *  
+ *  Security header that we must take care
+ * 
+ *   X-powerd by  when you wanted to tell which server are you using
+ *   Refferal-policy when you wanted to share full url when cross orign share just orign name
+ *   HSTS for redirection
+ *   X-content type : nosniff
+ *   x-xss protection by default set by brower
+ * 
+ * 
+ * *  Whenever you do client side storage make sure below things
+  * 
+  *  P0 TRY NOT TO STORE ANYTHING CLIENT SIDE EVERYT CRITCAL THINK MUST BE AT SERVER SIDE
+  * 
+  *  IF YOU ARE STORING THEN MAKE SURE EVERYTHING IS ENCRIPTED
+  * 
+  *  ALSO MAKE SURE YOU HAVE PROPER JWT/OAUTH KIND OF TOKEN
+  *  
+  *  MUST HAVE TOKEN EXPIRE CLIENT SIDE ALSO
+  * 
+  *  DATA INTEGRITY : THIS IS BEST ONE SEE FIRST IS LIKE DATA MUST BE ENCRPTED BUT ADD SOME CHECKSUM WITH THAT ALSO
+  * 
+  *  CHECKSUM IS LIT KIND OF TECHNIQUE
+  * 
+  *  SESSION MANAGEMENT IS MUST
+  * 
+  *  ALSO MAKE SURE YOU USE estimate API FROM navigator TO MAKE SURE THAT YOU DON'T SURE MORE DATA THAT CAPACITY ELSE ITS LIKE IT WILL REMOVE OLD
+  *  DATA AUTOMATICALLY
+  * 
+  *  THESE ALL LEAST THINKS THAT YOU MUST TAKE CARE AT LAST FOR COOKIES USE THINGS LIKE HTTPONLY , SECURE AND SAME ORIGITN HEADERS PRORPERITES
+  * 
+  * 
+  *  npm audit have daily practies for this command
+  * 
+  *  npm set audit true then it will run whenever you run npm install
+  * 
+  *  dependend-bot 
+  * 
+  *  codeQL => like script you write and it will do weekly analysis of your dependedcy and code both
+ * 
+ *   THese are few complience where you must have idea
+ * 
+ *    GDPR  MAILY FOCUS ON EU
+ *    HIPPA  HELTHCARE USA
+ *    PCI- DSS FOR PAYMENT
+ *    FISMA  -> MAULY FOR GOV STUFF
+ *    CWAG => ACCESIBLITY
+ * 
+ *  SEE BOTH SSRF (SERVER SIDE REQUEST FROGEY AND SERVER SIDE JS INJECTATION)
+ *  BOTH HAPPEN MAINLY BECAUSE OF NOT FOLLOWING LEAST ACCESS KIND OF PRACTICES AND NOT THINKING DEEP ABOUT 
+ *  USER INPUTS
+ * 
+ *  ALWAYS REMBER NO MATTER HOW MUCH VALIDATIONS YOU HAVE ON SERVER YOU MUST HAVE CLIENT SIDE VALIDATION ALSO
+ * 
+ *  FEATURE POLICIES ARE LIT ITS LIKE MAINFEST OF ANDROID WHERE YOU CAN DECIDE WHICH BROWSER 
+ *  CAPABILITIES YOU WANTED TO ALLOW TO USER ORIGIN OR TO SUB-DOMAINS LIKE LET-LONG AUTOPLAY PICTURE-IN-PLAY ALL
+ *  ALL THIS ALSO YOU HAVE TO SET TO SERVER HEADERS 
+ * 
+ *  Subresoure integrty is lit also this is the topic from where i even got the idea why we have hell lot
+ *  of integrity="asdafwsaf" kind fo keys with each library
+ * 
+ *  CORS : cross origin resourese sharing 
+ * 
+ *  You really don't need to remember cors because the topic it self make hell lot of sense 
+ * 
+ *  I create Foogle.com and use api of google.com does it make sense no way so for that we have cors
+ * 
+ *  This also we need to set to server side like what kind for domain , sub-domain . port , methods,you wanted to 
+ *  allow
+ *  
+ *  once you set those server side then suppose domain like foogle.com tries to access your api then browser are smarts
+ *  first then will make PRE-FLIGHT option request to google.com and say this is this domain is allowed if google say yes
+ *  we have in our allowed list then only browsers process further with request
+ * 
+ *  IN CORS YOU CAN SELECT ALLOW ORIGIN , ALLOW MEHTOD , ALLOWED HEADERS , ALLOWED CREDENTIONAL , AND ALSO CUSTOM HEADERS WITH X-OPTIONS ALL
+ *  THIS THINKS YOU CAN SET IN 99% CASES ORIGIN AND METHODS YOU MUST BE SETTING
+ * 
+ *  APART FROM ALL ABOUT WE NEED TO HAVE UNDERSTANDING OF CROSS SIDE REQUEST FROGRY (BUT IN THIS MOST OF THINKS ARE NEEDED TO TAKE CARE FROM SERVER SIDE)
+ *   
+ */
         
