@@ -1022,3 +1022,57 @@
 //  *     slider.pause(); // Allow users to pause slideshows
 //  *     ```
 //  */
+
+
+
+
+
+
+
+
+/**
+ *  REVISION 
+ * 
+ *  SPEECH RECORDER
+ *  WCAG 
+ *  A AA AAA
+ *  VOICE OVER IN MAC , NVDA , JWAS (PAID ONE)
+ *  BY DEFAULT WEB PAGES ARES ACCESSIBLY WE USE EVERY WHERE DIV ANY MAKE IT IN-ACCESSIBLE
+ *  TRY TO USE HTML SMENTICS MOST OF TIME LIKE
+ *  header , footer , body , ui , li , oi , nav , caption , main
+ *  try to use alt tag in images 
+ *  for audio and video must must have transscript
+ *  aria
+ *  aria-label
+ *  aria-labeled
+ *  aria-descriped-by 
+ *  
+ *  role | state | properties
+ * 
+ *  role="button"
+ *  state= "hidden"
+ *  poperites like aria-labeled and all
+ * 
+ * 
+ *  aria-live : assertive| polite | off (lit)
+ *  tab-index
+ *  skip to main contetnt 
+ *  focus
+ * 
+ *  color contrans and 400% zoom
+ *  ration when fonst size is less then 18 4.5:1 and when greater then 3:1
+ *  you can see color contrast in dev tools
+ * 
+ *  axe-devtools in BEST for testing 
+ *  MAINLY 99% of time we are going to use light-house for accesiblity
+ * 
+ *  MOST OF UI LIBRARY LIKE MATERIAL UI , FLUNT PROVIDE INBUILT TAKEN CARE OF ACCESSIBLITY
+ * 
+ * TRY NOT US POLUTE EVERYTHING WITH ARIA
+ * TRY NOT TO CHANGE TABINDEX MOST OF IT DEFAULT WORKS BEST
+ * 
+ *  onKeyUp , onKeyPressed use this frequmently on only onPress
+ * 
+ *  FOR LINK AND <A MAKE SURE YOU HAVE PROPER ARAIA-LABEL AND ALL
+ *  SEE MOST OF TIME LIGHTHOUSE WILL TELL YOU WHAT KIND OF ERROR YOU HAVE SO ABOVE THINKS ARE MORE THEN ENOUGHT
+ */
