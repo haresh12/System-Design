@@ -466,3 +466,14 @@
  *    15. **Code Modifications**: Babel can automate code 
  *        modifications across large codebases.
  */
+
+/**
+ *  const component = lazy(() => import('path'));
+ * 
+ *  <suspance fallback> <LoadLater> </suspnace>
+ * 
+ *  chunking
+ *  on demand loading
+ *  Code spliting
+ *  
+ */
