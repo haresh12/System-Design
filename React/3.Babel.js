@@ -498,3 +498,39 @@
  *  "use callBack" // SAME AS ABOVE JUST FOR useCallBack
  */
 
+
+/**
+ *  Suppose you have one compoenent A and Component A has child component B now IN component A
+ *  you have one text <div> haresh </div> and in compent B you have button now task was click
+ *  when we are pressing button from compenent B text from A should be changed AND THAT IS EASY
+ *  BUT WEIRD IS THAT ON PRESS OF B A WAS GETTING CALLED AGAIN WE DON'T DON'T NEED THAT FOR THAT
+ *   
+ *      >>> FOR ABOVE QUESTION IF I WOULD HAVE CLEAR UNDERSTANDING OF useCallBack then i would not
+ *          have faced any issue ONLY WE HAVE TO DO IS PASS WRAP THAT FUNCTION WITH useCallback
+ */
+
+/**
+ *  Understadning hoisting and all this one think solving problems related those is totally LIT focus more on that
+ */
+
+/**
+ *  FROM DAY ONE I KNOW THAT JS IS SYCRONUS SINGLE THREADED LAGUAGE AND STILL
+ * 
+ *    asyc function a(){
+ *     console.log("hello");
+ *    }
+ *    a()
+ *    console.log("world");
+ * 
+ *  i said output will be hello world ARE you out of your mind do you think js will wailt for asyc function AGAIN do more practies in that code snippet 
+ */
+
+
+/**
+ *  one weird mistake done in case of closure also even it was simple one see closures stays there for same function but if you create
+ *  different reference for that the its like totally new memory new fucntion creation. DO MORE PRECTIES 
+ */
+
+/**
+ *  Last but not least understand proper useMemo and useCallback renderding
+ */
