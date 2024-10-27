@@ -33,4 +33,24 @@
 
 
 
+  /**
+   *     UNDERSTADING OF REACT ROUTER
+   * 
+   * react-router-dom
+   * createBrowserRouter
+   * path
+   * elements
+   * children
+   * erroelements
+   * Link
+   * navigate
+   * <RouterProvider/>
+   * <Outlet/>
+   * don't use <a href/> always use Link else it will render full page
+   * useRouterError
+   * useParams /
+   * useQueryParams ?
+   * 
+   */
+
                                                                  
